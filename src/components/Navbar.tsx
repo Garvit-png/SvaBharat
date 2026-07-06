@@ -18,10 +18,10 @@ export function Navbar() {
         
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-10 text-base font-medium tracking-wide text-white/90 drop-shadow-md">
-          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all duration-300">Home</a>
-          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all duration-300">About</a>
-          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all duration-300">Events</a>
-          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all duration-300">Contact</a>
+          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-orange-500 transition-all duration-300">Home</a>
+          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-orange-500 transition-all duration-300">About</a>
+          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-orange-500 transition-all duration-300">Events</a>
+          <a href="#" className="px-4 py-1.5 rounded-full hover:bg-white hover:text-orange-500 transition-all duration-300">Contact</a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
