@@ -16,7 +16,7 @@ export function BackgroundPaths({ title }: { title?: string }) {
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
       <svg
-        className="absolute w-full h-full opacity-40 text-black"
+        className="absolute w-full h-full opacity-80"
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid slice"
       >
@@ -25,7 +25,7 @@ export function BackgroundPaths({ title }: { title?: string }) {
             key={i}
             d={path}
             fill="none"
-            stroke={i < 30 ? "#f97316" : "#4ade80"}
+            stroke="white"
             strokeWidth="0.3"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}

@@ -41,37 +41,48 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
   }, [showAnimation]);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-white to-green-50 text-black">
-      <BackgroundPaths />
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black text-white">
+      
+      {/* Background Video Layer */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover opacity-80"
+          src="/background.mp4"
+        />
+        {/* Very subtle dark overlay */}
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 text-center mt-20">
+      {/* Removed BackgroundPaths temporarily as requested */}
+
+      <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 text-center mt-12 md:mt-20">
         <h1
           ref={titleRef}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter leading-none"
-          style={{ opacity: showAnimation ? 0 : 1 }} // Hide initially if animating
         >
-          SvaBharat
+          Reimagining Bharat.<br/>From First Principles.
         </h1>
         
         <p
           ref={subtitleRef}
-          className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-neutral-600 font-light"
-          style={{ opacity: showAnimation ? 0 : 1 }}
+          className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-white/90 font-light drop-shadow-sm"
         >
-          A vision of progress, elegance, and unyielding potential. 
-          Experience the premium revolution.
+          SvaBharat is a movement to imagine and shape a Bharat rooted in selfhood, original thought, and collective possibility.
         </p>
 
         <div
           ref={ctaRef}
           className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4"
-          style={{ opacity: showAnimation ? 0 : 1 }}
         >
-          <button className="px-6 py-2 md:px-8 md:py-3 rounded-full bg-black text-white font-semibold hover:bg-neutral-800 transition-colors text-sm md:text-base">
-            Get Started
+          <button className="px-6 py-2 md:px-8 md:py-3 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors text-sm md:text-base shadow-lg hover:shadow-orange-500/50">
+            Explore the Ideas
           </button>
-          <button className="px-6 py-2 md:px-8 md:py-3 rounded-full border border-neutral-300 bg-white/50 backdrop-blur-sm text-black font-semibold hover:bg-neutral-100 transition-colors text-sm md:text-base">
-            Learn More
+          <button className="px-6 py-2 md:px-8 md:py-3 rounded-full border border-white/30 bg-black/30 backdrop-blur-md text-white font-semibold hover:bg-white/10 transition-colors text-sm md:text-base">
+            Join the Movement
           </button>
         </div>
       </div>
