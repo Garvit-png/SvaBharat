@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { BackgroundPaths } from "./ui/background-paths";
 
 export function Hero({ showAnimation }: { showAnimation: boolean }) {
   const titleRef = useRef<HTMLHeadingElement>(null);

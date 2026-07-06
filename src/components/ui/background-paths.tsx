@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function BackgroundPaths({ title }: { title?: string }) {
+export function BackgroundPaths() {
   const paths = Array.from({ length: 60 }, (_, i) => {
     const startY = 80 + i * 0.5;
     const startX = -10 + i * 0.2;
