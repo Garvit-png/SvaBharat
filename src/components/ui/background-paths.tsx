@@ -25,7 +25,7 @@ export function BackgroundPaths() {
             key={i}
             d={path}
             fill="none"
-            stroke="white"
+            stroke={i < 30 ? "#f97316" : "#4ade80"}
             strokeWidth="0.3"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
