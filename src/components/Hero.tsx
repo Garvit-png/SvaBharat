@@ -41,7 +41,7 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
   }, [showAnimation]);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-orange-50 text-black">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#Fdf6e3] text-black" style={{ backgroundColor: "#Fdf6e3" }}>
       <BackgroundPaths />
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 text-center mt-12 md:mt-20">
@@ -59,17 +59,18 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
           SvaBharat is a movement to imagine and shape a Bharat rooted in selfhood, original thought, and collective possibility.
         </p>
 
-        <div
-          ref={ctaRef}
-          className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4"
-        >
-          <button className="px-6 py-2 md:px-8 md:py-3 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors text-sm md:text-base shadow-lg hover:shadow-orange-500/50">
-            Explore the Ideas
-          </button>
-          <button className="px-6 py-2 md:px-8 md:py-3 rounded-full border border-black/10 bg-white/50 backdrop-blur-md text-black font-semibold hover:bg-black/5 transition-colors text-sm md:text-base">
-            Join the Movement
-          </button>
-        </div>
+      </div>
+
+      <div
+        ref={ctaRef}
+        className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex flex-col sm:flex-row gap-3 md:gap-4 z-20"
+      >
+        <button className="px-6 py-2 md:px-8 md:py-3 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors text-sm md:text-base shadow-lg hover:shadow-orange-500/50">
+          Explore the Ideas
+        </button>
+        <button className="px-6 py-2 md:px-8 md:py-3 rounded-full border border-black/10 bg-white/50 backdrop-blur-md text-black font-semibold hover:bg-black/5 transition-colors text-sm md:text-base">
+          Join the Movement
+        </button>
       </div>
     </section>
   );
