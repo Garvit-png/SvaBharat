@@ -40,7 +40,7 @@ export function BackgroundPaths() {
               key={i}
               d={path}
               fill="none"
-              stroke={i % 2 === 0 ? "#f97316" : "#4ade80"}
+              stroke={i % 2 === 0 ? "#F97316" : "#4ade80"}
               strokeWidth={0.25 + (i % 3) * 0.15}
               strokeOpacity={0.6 + (i % 4) * 0.1}
               initial={{ pathLength: 0, opacity: 0 }}

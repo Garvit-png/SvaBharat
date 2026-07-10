@@ -37,7 +37,7 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
       );
 
       // Animate Background Spinning
-      gsap.to(".chakra-bg", {
+      gsap.to(".chakra-svg", {
         rotation: 360,
         duration: 60,
         repeat: -1,
@@ -54,20 +54,20 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
 
       {/* Detailed Abstract Chakra Background */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-[0.08] chakra-bg"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-[0.25]"
         style={{ WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)', maskImage: 'radial-gradient(circle, black 40%, transparent 70%)' }}
       >
-        <svg viewBox="0 0 200 200" className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px]">
+        <svg viewBox="0 0 200 200" className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] chakra-svg">
           
           {/* Outer Rims */}
-          <circle cx="100" cy="100" r="96" fill="none" stroke="black" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="92" fill="none" stroke="black" strokeWidth="0.5" />
-          <circle cx="100" cy="100" r="90" fill="none" stroke="black" strokeWidth="1" />
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#F97316" strokeWidth="1.5" />
+          <circle cx="100" cy="100" r="92" fill="none" stroke="#F97316" strokeWidth="0.5" />
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#F97316" strokeWidth="1" />
           
           {/* Central Hub */}
-          <circle cx="100" cy="100" r="16" fill="none" stroke="black" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="12" fill="none" stroke="black" strokeWidth="0.5" />
-          <circle cx="100" cy="100" r="8" fill="black" />
+          <circle cx="100" cy="100" r="16" fill="none" stroke="#F97316" strokeWidth="1.5" />
+          <circle cx="100" cy="100" r="12" fill="none" stroke="#F97316" strokeWidth="0.5" />
+          <circle cx="100" cy="100" r="8" fill="#F97316" />
 
           {/* 24 Spokes & Outer Dots */}
           {Array.from({ length: 24 }).map((_, i) => (
@@ -77,10 +77,10 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
                 y1="84"
                 x2="100"
                 y2="16"
-                stroke="black"
+                stroke="#F97316"
                 strokeWidth="1"
               />
-              <circle cx="100" cy="10" r="1.5" fill="black" />
+              <circle cx="100" cy="10" r="1.5" fill="#F97316" />
             </g>
           ))}
         </svg>
