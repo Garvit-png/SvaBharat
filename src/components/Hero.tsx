@@ -36,14 +36,12 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
         "-=0.3"
       );
 
-      // Animate Background Breathing
+      // Animate Background Spinning
       gsap.to(".chakra-bg", {
-        scale: 1.05,
-        rotation: 2,
-        duration: 8,
+        rotation: 360,
+        duration: 60,
         repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
+        ease: "none"
       });
     });
 
