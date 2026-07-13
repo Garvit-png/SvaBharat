@@ -4,116 +4,97 @@ import { BackgroundPaths } from "./ui/background-paths";
 
 export function Hero({ showAnimation }: { showAnimation: boolean }) {
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showAnimation) return;
-
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.2 }); // small delay after reveal sweep
-
-      // Animate Title
+      const tl = gsap.timeline({ delay: 0.1 });
       tl.fromTo(
         titleRef.current,
-        { opacity: 0, filter: "blur(10px)", y: 20 },
-        { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.7, ease: "power3.out" }
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }
       );
-
-      // Animate Subtitle
       tl.fromTo(
-        subtitleRef.current,
-        { opacity: 0, filter: "blur(5px)", y: 15 },
-        { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.6, ease: "power3.out" },
+        bottomRef.current?.children || [],
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" },
         "-=0.4"
       );
-
-      // Animate CTA
-      tl.fromTo(
-        ctaRef.current?.children || [],
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-        "-=0.3"
-      );
-
-      // Animate Background Spinning
       gsap.to(".chakra-svg", {
         rotation: 360,
-        duration: 60,
+        duration: 80,
         repeat: -1,
-        ease: "none"
+        ease: "none",
       });
     });
-
     return () => ctx.revert();
   }, [showAnimation]);
 
   return (
-    <section className="relative w-full h-full min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden text-black">
+    <section className="relative w-full h-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] flex flex-col overflow-hidden text-neutral-900">
+      
+      {/* Subtle background paths */}
       <BackgroundPaths />
 
-      {/* Detailed Abstract Chakra Background */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-[0.25]"
-        style={{ WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)', maskImage: 'radial-gradient(circle, black 40%, transparent 70%)' }}
+      {/* Very subtle chakra watermark */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-[0.06]"
+        style={{
+          WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 70%)",
+          maskImage: "radial-gradient(circle, black 30%, transparent 70%)",
+        }}
       >
-        <svg viewBox="0 0 200 200" className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] chakra-svg">
-          
-          {/* Outer Rims */}
-          <circle cx="100" cy="100" r="96" fill="none" stroke="#F97316" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="92" fill="none" stroke="#F97316" strokeWidth="0.5" />
-          <circle cx="100" cy="100" r="90" fill="none" stroke="#F97316" strokeWidth="1" />
-          
-          {/* Central Hub */}
-          <circle cx="100" cy="100" r="16" fill="none" stroke="#F97316" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="12" fill="none" stroke="#F97316" strokeWidth="0.5" />
-          <circle cx="100" cy="100" r="8" fill="#F97316" />
-
-          {/* 24 Spokes & Outer Dots */}
+        <svg viewBox="0 0 200 200" className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] chakra-svg">
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#78350f" strokeWidth="1.5" />
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#78350f" strokeWidth="1" />
+          <circle cx="100" cy="100" r="16" fill="none" stroke="#78350f" strokeWidth="1.5" />
+          <circle cx="100" cy="100" r="8" fill="#78350f" />
           {Array.from({ length: 24 }).map((_, i) => (
             <g key={i} transform={`rotate(${i * 15} 100 100)`}>
-              <line
-                x1="100"
-                y1="84"
-                x2="100"
-                y2="16"
-                stroke="#F97316"
-                strokeWidth="1"
-              />
-              <circle cx="100" cy="10" r="1.5" fill="#F97316" />
+              <line x1="100" y1="84" x2="100" y2="16" stroke="#78350f" strokeWidth="1" />
+              <circle cx="100" cy="10" r="1.5" fill="#78350f" />
             </g>
           ))}
         </svg>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 text-center mt-12 md:mt-20 gap-8 md:gap-10">
-        
+      {/* Main Content — centered vertically & horizontally */}
+      <div className="relative z-10 flex-1 flex items-center justify-center px-6 md:px-16 lg:px-24">
         <h1
           ref={titleRef}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-none"
+          className="text-center text-[clamp(2.8rem,8vw,7rem)] font-light leading-[1.05] tracking-[-0.03em] max-w-5xl text-neutral-900"
+          style={{ opacity: 0 }}
         >
-          Reimagining Bharat.<br/>From First Principles.
+          Reimagining Bharat.<br />
+          From First Principles.
         </h1>
-        
-        <p
-          ref={subtitleRef}
-          className="max-w-xl text-base sm:text-lg md:text-xl text-neutral-800 font-medium drop-shadow-sm leading-relaxed"
-        >
-          SvaBharat is a movement to imagine and shape a Bharat rooted in selfhood, original thought, and collective possibility.
+      </div>
+
+      {/* Bottom Row — subtitle left, CTA right */}
+      <div
+        ref={bottomRef}
+        className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 px-6 md:px-16 lg:px-24 pb-8 md:pb-12"
+      >
+        <p className="max-w-xs text-sm md:text-base text-neutral-600 font-normal leading-relaxed" style={{ opacity: 0 }}>
+          A movement to question assumptions and imagine new possibilities for Bharat.
         </p>
 
-        <div
-          ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 mt-2"
-        >
-          <button className="px-8 py-3 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-all duration-300 text-sm md:text-base shadow-lg hover:shadow-orange-500/50 hover:-translate-y-0.5">
+        <div className="flex flex-col sm:flex-row gap-3" style={{ opacity: 0 }}>
+          <a
+            href="/ideas"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors"
+          >
             Explore the Ideas
-          </button>
-          <button className="px-8 py-3 rounded-full border border-black/10 bg-white/50 backdrop-blur-md text-black font-semibold hover:bg-black/5 transition-all duration-300 text-sm md:text-base hover:-translate-y-0.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-neutral-300 text-neutral-700 text-sm font-medium hover:border-neutral-500 hover:text-neutral-900 transition-colors bg-white/40 backdrop-blur-sm"
+          >
             Join the Movement
-          </button>
+          </a>
         </div>
-
       </div>
     </section>
   );

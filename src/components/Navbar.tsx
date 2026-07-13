@@ -6,75 +6,82 @@ import { Link } from "react-router-dom";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const links = [
+    { to: "/about", label: "About" },
+    { to: "/ideas", label: "Ideas" },
+    { to: "/blogs", label: "Blogs" },
+    { to: "/contact", label: "Contact" },
+  ];
+
   return (
     <div className="absolute top-0 left-0 right-0 z-50 w-full flex items-start justify-between pointer-events-none">
-      
-      {/* Left Side: Logo Cutout + Brand Text */}
+
+      {/* Logo Cutout */}
       <div className="flex items-center pointer-events-auto">
-        
-        {/* Cutout Logo Container */}
-        <div className="relative p-3 md:p-5 bg-white flex items-center justify-center z-50 rounded-br-2xl md:rounded-br-3xl shadow-sm">
-          
-          <div className="transform transition-transform hover:scale-105 cursor-pointer">
-            <img src="/logo.png" alt="Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-sm" />
-          </div>
-
-          {/* Right Concave Curve (Top Edge) */}
-          <svg className="absolute top-0 -right-4 md:-right-6 w-4 h-4 md:w-6 md:h-6 fill-white pointer-events-none drop-shadow-sm" viewBox="0 0 32 32">
+        <div className="relative p-3 md:p-5 bg-white flex items-center justify-center z-50 rounded-br-2xl md:rounded-br-3xl">
+          <Link to="/" className="transform transition-transform hover:scale-105">
+            <img src="/logo.png" alt="SvaBharat" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+          </Link>
+          {/* Right concave */}
+          <svg className="absolute top-0 -right-4 md:-right-5 w-4 h-4 md:w-5 md:h-5 fill-white pointer-events-none" viewBox="0 0 32 32">
             <path d="M0,0 H32 A32,32 0 0,0 0,32 Z" />
           </svg>
-
-          {/* Bottom Concave Curve (Left Edge) */}
-          <svg className="absolute -bottom-4 md:-bottom-6 left-0 w-4 h-4 md:w-6 md:h-6 fill-white pointer-events-none drop-shadow-sm" viewBox="0 0 32 32">
+          {/* Bottom concave */}
+          <svg className="absolute -bottom-4 md:-bottom-5 left-0 w-4 h-4 md:w-5 md:h-5 fill-white pointer-events-none" viewBox="0 0 32 32">
             <path d="M0,0 H32 A32,32 0 0,0 0,32 Z" />
           </svg>
-
         </div>
 
-        {/* Brand Text on beige background */}
-        <span className="font-semibold text-sm sm:text-base md:text-lg tracking-tight text-neutral-900 ml-5 md:ml-8 hidden sm:block drop-shadow-sm">
-          Sva-Bharat Movement
+        {/* Brand name — minimal, small */}
+        <span className="ml-5 md:ml-7 text-base md:text-lg font-semibold tracking-tight text-neutral-800 hidden sm:block">
+          SvaBharat
         </span>
-
       </div>
 
-
-
-      {/* Navbar on the Right (No box, just spread out links) */}
-      <nav className="pointer-events-auto flex items-center justify-end relative z-50 px-6 md:px-12 pt-5 md:pt-8">
-        
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-12 text-base font-medium tracking-wide text-black drop-shadow-sm">
-          <Link to="/" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Home</Link>
-          <Link to="/about" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">About</Link>
-          <Link to="/ideas" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Ideas</Link>
-          <Link to="/blogs" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Blogs</Link>
-          <Link to="/contact" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Contact</Link>
-        </div>
-
-        {/* Mobile Hamburger Toggle */}
-        <div className="flex md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-neutral-800 hover:text-black transition-colors z-50">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+      {/* Desktop Nav */}
+      <nav className="pointer-events-auto hidden md:flex items-center gap-10 px-10 pt-6 text-sm font-normal text-neutral-700">
+        {links.map((l) => (
+          <Link
+            key={l.to}
+            to={l.to}
+            className="hover:text-neutral-900 transition-colors"
+          >
+            {l.label}
+          </Link>
+        ))}
       </nav>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Hamburger */}
+      <div className="pointer-events-auto flex md:hidden px-5 pt-5">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 text-neutral-700 hover:text-neutral-900 transition-colors"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-[100%] right-6 mt-4 p-6 bg-white/80 backdrop-blur-xl border border-neutral-200/50 shadow-lg rounded-3xl md:hidden flex flex-col items-center gap-4 text-lg font-semibold z-40 pointer-events-auto min-w-[200px]"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18 }}
+            className="absolute top-[4rem] right-4 w-48 bg-white/90 backdrop-blur-xl border border-neutral-200/60 rounded-2xl shadow-lg py-3 flex flex-col pointer-events-auto"
           >
-            <Link to="/" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link to="/about" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>About</Link>
-            <Link to="/ideas" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Ideas</Link>
-            <Link to="/blogs" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Blogs</Link>
-            <Link to="/contact" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
+            {links.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="px-5 py-2.5 text-sm font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {l.label}
+              </Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

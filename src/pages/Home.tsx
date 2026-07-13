@@ -6,179 +6,151 @@ import { Navbar } from "../components/Navbar";
 export function Home() {
   return (
     <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
-      {/* Hero Section */}
-      <section className="relative w-full min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+
+      {/* ── HERO ── */}
+      <section className="relative w-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
         <Navbar />
         <Hero showAnimation={true} />
       </section>
 
-      {/* Central Idea Section */}
-      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
         <CutTitle position="top-left">What Does "SvaBharat" Mean?</CutTitle>
-        
-        <div className="mt-12 md:mt-16 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl font-medium text-neutral-800 mb-10 leading-relaxed">
-            SvaBharat (स्वभारत) combines two Sanskrit words:
+
+        <div className="mt-16 md:mt-20 max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-neutral-500 font-light mb-16 leading-relaxed text-center">
+            SvaBharat (स्वभारत) is formed from two Sanskrit words, each carrying centuries of meaning.
           </p>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0 mb-12 w-full">
-            
-            <div className="w-full md:w-[40%] bg-white/60 p-8 rounded-3xl shadow-sm border border-white/80 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold text-orange-600 mb-2">Sva (स्व)</h3>
-              <p className="text-lg text-neutral-700">Self, Own, One's own</p>
+
+          {/* Cards with slack rope */}
+          <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-0 mb-16">
+            <div className="w-full md:w-[42%] bg-white rounded-2xl p-8 border border-neutral-100 text-center">
+              <p className="text-xs font-medium text-neutral-400 tracking-widest uppercase mb-4">First word</p>
+              <h3 className="text-3xl md:text-4xl font-light mb-2">Sva</h3>
+              <p className="text-lg font-medium text-orange-600 mb-3">स्व</p>
+              <p className="text-neutral-500 font-light leading-relaxed">Self, Own, One's own — the confidence to think and act from one's own centre.</p>
             </div>
-            
-            {/* Slack Rope SVG between the containers */}
-            <div className="hidden md:flex flex-1 h-16 items-center justify-center -translate-y-2">
-              <svg 
-                className="w-full h-full" 
-                viewBox="0 0 100 50" 
-                preserveAspectRatio="none"
-              >
-                <path 
-                  d="M0,10 Q50,50 100,10" 
-                  fill="none" 
-                  stroke="#fdba74" 
-                  strokeWidth="3" 
-                  strokeLinecap="round"
-                  className="opacity-80"
-                />
+
+            {/* Rope */}
+            <div className="hidden md:flex flex-1 items-center justify-center px-2 -translate-y-3">
+              <svg className="w-full h-12" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <path d="M0,8 Q50,38 100,8" fill="none" stroke="#e5c99a" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </div>
-            
-            <div className="w-full md:w-[40%] bg-white/60 p-8 rounded-3xl shadow-sm border border-white/80 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold text-orange-600 mb-2">Bharat (भारत)</h3>
-              <p className="text-lg text-neutral-700">India</p>
+
+            <div className="w-full md:w-[42%] bg-white rounded-2xl p-8 border border-neutral-100 text-center">
+              <p className="text-xs font-medium text-neutral-400 tracking-widest uppercase mb-4">Second word</p>
+              <h3 className="text-3xl md:text-4xl font-light mb-2">Bharat</h3>
+              <p className="text-lg font-medium text-orange-600 mb-3">भारत</p>
+              <p className="text-neutral-500 font-light leading-relaxed">India — the land, the people, the civilisation, and everything that has yet to be imagined.</p>
             </div>
           </div>
-          
-          <div className="bg-orange-50 p-8 md:p-10 rounded-3xl border border-orange-100/50">
-            <h4 className="text-xl font-semibold mb-4 text-orange-800">Full Meaning:</h4>
-            <p className="text-2xl md:text-3xl font-medium leading-tight text-neutral-900">
-              "Self India" or "Own India" — representing a self-reliant, self-aware India driven by its own people's aspirations
+
+          <div className="border-l-2 border-orange-300 pl-6 py-2 mx-auto">
+            <p className="text-xl md:text-2xl font-light text-neutral-800 leading-snug text-center">
+              Together: <span className="font-medium text-neutral-900">"Own India"</span> — a self-reliant, self-aware Bharat driven by the aspirations of its own people.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why Section */}
-      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#F4ebd8] rounded-3xl md:rounded-[3rem] overflow-hidden">
-        <CutTitle position="top-left">Why SvaBharat?</CutTitle>
-        
-        <div className="mt-12 md:mt-16 max-w-4xl mx-auto min-h-[30vh] flex items-center justify-center">
-           {/* Placeholder for future detailed content */}
-           <p className="text-2xl text-neutral-500 italic text-center">To be expanded...</p>
-        </div>
-      </section>
-
-      {/* How Section */}
-      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+      {/* ── HOW WE THINK ── */}
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
         <CutTitle position="top-left">From First Principles to New Possibilities</CutTitle>
-        
-        <div className="mt-12 md:mt-16 max-w-4xl mx-auto space-y-8 text-lg md:text-xl text-neutral-800">
-          <p className="font-medium text-2xl text-black">
-            SvaBharat is a space where fundamental questions become living ideas.
+
+        <div className="mt-16 md:mt-20 max-w-3xl">
+          <p className="text-2xl md:text-3xl font-light leading-relaxed text-neutral-700 mb-10">
+            We begin not with solutions, but with the right questions.
           </p>
-          <p>Our approach is simple in spirit and rigorous in practice.</p>
-          <div className="pl-6 border-l-4 border-orange-400 space-y-4 py-2 my-8">
-            <p>We begin with a question.</p>
-            <p>A question that matters to the future of Bharat.</p>
+          <div className="space-y-6 text-neutral-500 font-light text-lg leading-relaxed mb-12">
+            <p>Not <span className="italic">"How can the existing system be improved?"</span></p>
+            <p className="text-neutral-800 font-normal text-xl">"What are we actually trying to achieve?"</p>
+            <p>We strip problems back to what is fundamentally true, and rebuild from there.</p>
           </div>
-          <p>Not merely, <span className="italic">“How can the existing system be improved?”</span></p>
-          <p>But often:</p>
-          <p className="font-medium text-2xl text-orange-600">“What are we actually trying to achieve?”</p>
-          <p>We uncover assumptions.</p>
-          
-          <div className="pt-8">
-            <Link to="/about" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-neutral-900 text-white font-semibold hover:bg-orange-600 transition-all duration-300 text-base shadow-lg hover:-translate-y-0.5">
-              Explore How We Think
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </Link>
-          </div>
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors group"
+          >
+            Explore how we think
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
         </div>
       </section>
 
-      {/* Featured Conversation Section */}
-      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#1a1a1a] text-white rounded-3xl md:rounded-[3rem] overflow-hidden">
-        {/* Dark theme requires a different CutTitle or we stick to white for high contrast */}
-        <CutTitle position="top-left" className="!bg-[#1a1a1a] !text-white [&_svg]:!fill-[#1a1a1a]">Conversations That Move Ideas Forward</CutTitle>
-        
-        <div className="mt-16 md:mt-24 max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            <div className="w-full lg:w-1/2 aspect-video bg-neutral-800 rounded-3xl overflow-hidden relative group cursor-pointer shadow-2xl">
-               {/* Video Thumbnail Placeholder */}
-               <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
-                  <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center pl-2 shadow-lg transform group-hover:scale-110 transition-transform">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
-                  </div>
-               </div>
-            </div>
-            
-            <div className="w-full lg:w-1/2 space-y-6">
-              <div className="inline-block px-4 py-1 rounded-full bg-white/10 text-orange-400 font-medium text-sm tracking-wider uppercase mb-2">Featured Conversation</div>
-              <h3 className="text-3xl md:text-4xl font-bold leading-tight">The Future of Original Thought in Bharat</h3>
-              <p className="text-xl text-neutral-400">A short, compelling introduction to the central question explored in the conversation.</p>
-              
-              <div className="pt-4 flex items-center gap-4">
-                <div className="w-14 h-14 bg-neutral-700 rounded-full"></div>
-                <div>
-                  <p className="font-semibold text-lg">With Guest Name</p>
-                  <p className="text-neutral-400">Position / Field / Organisation</p>
-                </div>
-              </div>
+      {/* ── FEATURED CONVERSATION ── */}
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-neutral-900 text-white rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <CutTitle position="top-left" className="!bg-neutral-900 !text-white [&_svg]:!fill-neutral-900">
+          Featured Conversation
+        </CutTitle>
 
-              <div className="pt-8 flex flex-wrap gap-4">
-                <button className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-neutral-200 transition-all duration-300">
-                  Watch the Conversation
-                </button>
-                <button className="px-8 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all duration-300">
-                  Explore All Conversations
-                </button>
+        <div className="mt-16 md:mt-20 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+          {/* Video placeholder */}
+          <div className="w-full lg:w-1/2 aspect-video bg-neutral-800 rounded-2xl overflow-hidden group cursor-pointer flex-shrink-0">
+            <div className="w-full h-full flex items-center justify-center bg-neutral-800 group-hover:bg-neutral-700 transition-colors">
+              <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center pl-1 group-hover:bg-white/20 transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
               </div>
+            </div>
+          </div>
+
+          <div className="lg:w-1/2 flex flex-col justify-center">
+            <p className="text-xs font-medium tracking-widest uppercase text-neutral-400 mb-5">With Guest Name</p>
+            <h3 className="text-2xl md:text-3xl font-light leading-snug mb-4 text-white">
+              The Future of Original Thought in Bharat
+            </h3>
+            <p className="text-neutral-400 font-light leading-relaxed mb-8">
+              A short, compelling introduction to the central question explored in the conversation.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button className="px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-100 transition-colors">
+                Watch the conversation
+              </button>
+              <button className="px-5 py-2.5 rounded-full border border-neutral-700 text-neutral-300 text-sm font-medium hover:border-neutral-500 transition-colors">
+                All conversations
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Join the Movement Section */}
-      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
-        <CutTitle position="top-left">Bharat Cannot Be Reimagined by a Few.</CutTitle>
-        
-        <div className="mt-12 md:mt-16 max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl font-medium text-neutral-800 mb-10 leading-relaxed">
-            SvaBharat is not a closed institution. It is a movement. A movement for people who believe that the future deserves deeper questions, people willing to examine assumptions, people willing to bring evidence, people willing to disagree thoughtfully, and people willing to imagine beyond what already exists.
+      {/* ── JOIN THE MOVEMENT ── */}
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <CutTitle position="top-left">Join the Movement</CutTitle>
+
+        <div className="mt-16 md:mt-20 max-w-4xl">
+          <p className="text-2xl md:text-4xl font-light leading-relaxed text-neutral-700 mb-12">
+            Bharat cannot be reimagined by a few. There is space here for every person carrying a question that refuses to leave them.
           </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8 text-lg text-neutral-600 font-medium mb-12">
-            <p>You may be a student.</p>
-            <p>A researcher.</p>
-            <p>A teacher.</p>
-            <p>An entrepreneur.</p>
-            <p>A public servant.</p>
-            <p>A technologist.</p>
-            <p>A community practitioner.</p>
-            <p>An artist.</p>
-            <p>A thinker.</p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-3 text-neutral-500 font-light mb-12">
+            {["A student", "A researcher", "A teacher", "An entrepreneur", "A public servant", "A technologist", "A community practitioner", "An artist", "A thinker"].map(p => (
+              <p key={p}>{p}.</p>
+            ))}
           </div>
-          
-          <p className="text-2xl md:text-3xl font-medium text-black mb-12 italic">
-            Or simply a citizen carrying a question that refuses to leave you.
-          </p>
-          
-          <div className="bg-white/60 rounded-3xl p-8 md:p-12 border border-white/80 shadow-sm backdrop-blur-sm">
-            <h4 className="text-2xl font-bold text-orange-600 mb-6">There is space for you here.</h4>
-            <ul className="space-y-4 text-lg font-medium text-neutral-800 mb-10">
-              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-500"></span> Bring a question.</li>
-              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-500"></span> Contribute an idea.</li>
-              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-500"></span> Challenge an assumption.</li>
-              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-500"></span> Join a conversation.</li>
-              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-500"></span> Help build what comes next.</li>
-            </ul>
-            
-            <Link to="/ideas" className="inline-flex px-8 py-4 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-all duration-300 shadow-lg hover:-translate-y-0.5">
-              Contribute an Idea
-            </Link>
-          </div>
+
+          <Link
+            to="/ideas"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors"
+          >
+            Contribute an Idea →
+          </Link>
+        </div>
+      </section>
+
+      {/* ── NEWSLETTER ── */}
+      <section className="relative w-full py-16 md:py-20 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <div className="max-w-xl">
+          <h2 className="text-2xl md:text-3xl font-light mb-3">Stay Close to Ideas That Matter</h2>
+          <p className="text-neutral-500 font-light mb-8">A thoughtful selection of ideas, questions, and reflections from the SvaBharat movement.</p>
+          <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="flex-1 px-4 py-3 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-1 focus:ring-neutral-400 text-sm font-light"
+            />
+            <button className="px-6 py-3 rounded-xl bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
         </div>
       </section>
 

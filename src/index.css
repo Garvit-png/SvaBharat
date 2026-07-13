@@ -4,7 +4,16 @@
 
 @layer base {
   body {
-    @apply bg-white text-black m-0 p-0 overflow-x-hidden;
+    @apply bg-white text-neutral-900 m-0 p-0 overflow-x-hidden;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     cursor: url('/cursor.svg') 16 16, auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
   }
 }
