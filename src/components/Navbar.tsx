@@ -52,7 +52,7 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Hamburger */}
-      <div className="pointer-events-auto flex md:hidden px-5 pt-5">
+      <div className="pointer-events-auto flex md:hidden px-5 pt-5 relative z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 text-neutral-700 hover:text-neutral-900 transition-colors"
@@ -62,26 +62,36 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18 }}
-            className="absolute top-[4rem] right-4 w-48 bg-white/90 backdrop-blur-xl border border-neutral-200/60 rounded-2xl shadow-lg py-3 flex flex-col pointer-events-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[#Fdf6e3] flex flex-col items-center justify-center pointer-events-auto"
           >
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="px-5 py-2.5 text-sm font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {l.label}
-              </Link>
-            ))}
+            {/* Close Button inside Overlay (optional, since the hamburger icon changes to X, but the icon is z-50 so it's above the overlay!) */}
+            <div className="flex flex-col items-center gap-8">
+              {links.map((l, i) => (
+                <motion.div
+                  key={l.to}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.3, delay: i * 0.05 + 0.1 }}
+                >
+                  <Link
+                    to={l.to}
+                    className="text-3xl font-light text-neutral-800 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {l.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

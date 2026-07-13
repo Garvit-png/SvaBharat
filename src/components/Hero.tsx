@@ -71,26 +71,26 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
         </h1>
       </div>
 
-      {/* Bottom Row — subtitle left, CTA right */}
+      {/* Bottom Row — subtitle left, CTA right (Centered on mobile) */}
       <div
         ref={bottomRef}
-        className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 px-6 md:px-16 lg:px-24 pb-8 md:pb-12"
+        className="relative z-10 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 px-6 md:px-16 lg:px-24 pb-8 md:pb-12 text-center sm:text-left"
       >
         <p className="max-w-xs text-sm md:text-base text-neutral-600 font-normal leading-relaxed" style={{ opacity: 0 }}>
           A movement to question assumptions and imagine new possibilities for Bharat.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3" style={{ opacity: 0 }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto" style={{ opacity: 0 }}>
           <a
             href="/ideas"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-600 text-white text-sm font-medium hover:bg-orange-700 transition-colors w-full sm:w-auto"
           >
             Explore the Ideas
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-neutral-300 text-neutral-700 text-sm font-medium hover:border-neutral-500 hover:text-neutral-900 transition-colors bg-white/40 backdrop-blur-sm"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-neutral-900 bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-100 transition-colors w-full sm:w-auto"
           >
             Join the Movement
           </a>
