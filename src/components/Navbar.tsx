@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +45,11 @@ export function Navbar() {
         
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-12 text-base font-medium tracking-wide text-black drop-shadow-sm">
-          <a href="#" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Home</a>
-          <a href="#" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">About</a>
-          <a href="#" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Events</a>
-          <a href="#" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Contact</a>
+          <Link to="/" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Home</Link>
+          <Link to="/about" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">About</Link>
+          <Link to="/ideas" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Ideas</Link>
+          <Link to="/blogs" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Blogs</Link>
+          <Link to="/contact" className="relative py-1 transition-colors hover:text-orange-600 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">Contact</Link>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -68,10 +70,11 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="absolute top-[100%] right-6 mt-4 p-6 bg-white/80 backdrop-blur-xl border border-neutral-200/50 shadow-lg rounded-3xl md:hidden flex flex-col items-center gap-4 text-lg font-semibold z-40 pointer-events-auto min-w-[200px]"
           >
-            <a href="#" className="w-full text-center py-2 hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>Home</a>
-            <a href="#" className="w-full text-center py-2 hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>About</a>
-            <a href="#" className="w-full text-center py-2 hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>Events</a>
-            <a href="#" className="w-full text-center py-2 hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>Contact</a>
+            <Link to="/" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
+            <Link to="/about" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>About</Link>
+            <Link to="/ideas" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Ideas</Link>
+            <Link to="/blogs" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Blogs</Link>
+            <Link to="/contact" className="w-full text-center py-2 hover:text-orange-600 transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
           </motion.div>
         )}
       </AnimatePresence>

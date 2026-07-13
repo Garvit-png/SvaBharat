@@ -1,0 +1,114 @@
+import { CutTitle } from "../components/CutTitle";
+import { Navbar } from "../components/Navbar";
+
+export function Contact() {
+  return (
+    <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
+      {/* Page Header */}
+      <section className="relative w-full pt-32 pb-16 px-6 md:px-12 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <Navbar />
+        <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">Contact Us</h1>
+        <p className="text-xl md:text-2xl text-neutral-600 max-w-3xl">
+          Every meaningful movement begins with a conversation.
+        </p>
+      </section>
+
+      {/* Get in Touch Section */}
+      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <CutTitle position="top-left">Get in Touch</CutTitle>
+        
+        <div className="mt-16 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
+          <div className="lg:w-1/2 space-y-10">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">We would like to hear from you.</h3>
+              <p className="text-lg text-neutral-700">
+                Have a question you believe Bharat should be asking, or an idea you want to explore or a perspective that could strengthen one of our ideas?
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-white/60 p-6 rounded-2xl border border-white">
+                <h4 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-2">Email</h4>
+                <a href="mailto:hello@svabharat.in" className="text-xl font-medium text-black hover:text-orange-600 transition-colors">
+                  hello@svabharat.in
+                </a>
+              </div>
+              <div className="bg-white/60 p-6 rounded-2xl border border-white">
+                <h4 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-2">Contact Number</h4>
+                <a href="tel:+919876543210" className="text-xl font-medium text-black hover:text-orange-600 transition-colors">
+                  +91 98765 43210
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="lg:w-1/2 bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-neutral-100">
+            <h3 className="text-2xl font-bold mb-8">Send us a message</h3>
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">Name</label>
+                <input type="text" className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-neutral-50/50" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">Email Address</label>
+                <input type="email" className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-neutral-50/50" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">Organisation / Affiliation (Optional)</label>
+                <input type="text" className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-neutral-50/50" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">I am reaching out about:</label>
+                <select className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-neutral-50/50 appearance-none">
+                  <option>Contributing an Idea</option>
+                  <option>Joining an Existing Idea</option>
+                  <option>Becoming a Contributor</option>
+                  <option>Collaboration</option>
+                  <option>Research</option>
+                  <option>Conversation / Podcast</option>
+                  <option>Media</option>
+                  <option>General Enquiry</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">Message</label>
+                <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-neutral-50/50 resize-none"></textarea>
+              </div>
+              <button className="w-full px-8 py-4 rounded-xl bg-neutral-900 text-white font-semibold hover:bg-orange-600 transition-colors shadow-lg">
+                Start a Conversation
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Team Section */}
+      <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-[#F4ebd8] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <CutTitle position="top-left">The People Building SvaBharat</CutTitle>
+        
+        <div className="mt-16 max-w-6xl mx-auto">
+          <p className="text-xl font-medium text-neutral-800 mb-12 max-w-3xl">
+            SvaBharat is built by a team committed to creating space for original thought, meaningful conversations, and ideas that can shape the future.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white rounded-3xl p-8 shadow-sm border border-neutral-100 flex flex-col group">
+                <div className="w-24 h-24 bg-neutral-200 rounded-full mb-6"></div>
+                <h4 className="text-xl font-bold mb-1">Team Member</h4>
+                <p className="text-orange-600 font-medium text-sm mb-4">Position</p>
+                <p className="text-neutral-600 mb-8 flex-grow">
+                  Biography highlighting the person’s role, background, and areas of work. They ensure ideas find expression and movement happens on ground.
+                </p>
+                <a href="#" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0077b5] hover:text-[#005582] transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  Connect on LinkedIn
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

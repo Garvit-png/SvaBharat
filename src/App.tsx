@@ -1,14 +1,24 @@
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Ideas } from "./pages/Ideas";
+import { Blogs } from "./pages/Blogs";
+import { Contact } from "./pages/Contact";
 
 function App() {
   return (
-    <main className="relative min-h-screen p-4 md:p-8 lg:p-10 bg-white box-border">
-      <div className="relative w-full min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
-        <Navbar />
-        <Hero showAnimation={true} />
-      </div>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="ideas" element={<Ideas />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
