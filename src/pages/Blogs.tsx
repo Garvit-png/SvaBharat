@@ -174,10 +174,10 @@ export function Blogs() {
             </div>
 
             {/* Scrollable Content Body */}
-            <div className="flex-1 overflow-y-auto px-6 sm:px-10 py-8 leading-relaxed prose max-w-none text-neutral-700 text-base sm:text-lg">
+            <div className="flex-1 overflow-y-auto px-6 sm:px-10 py-8 leading-relaxed max-w-none text-neutral-700 text-base sm:text-lg">
               <div 
                 dangerouslySetInnerHTML={{ __html: selectedBlog.content }} 
-                className="space-y-6 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-neutral-900 [&_h2]:mt-8 [&_h2]:mb-4 [&_p]:leading-relaxed [&_p]:mb-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2"
+                className="rich-text-content"
               />
             </div>
           </div>

@@ -9,15 +9,18 @@ import {
   Trash2, 
   Edit3, 
   Upload, 
-  Bold, 
-  Italic, 
-  Underline, 
   List, 
   Link2, 
   Eye, 
   Check, 
   Sparkles,
-  RefreshCw
+  RefreshCw,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  ListOrdered,
+  Quote,
+  Image
 } from "lucide-react";
 import { 
   type Blog, 
@@ -69,6 +72,7 @@ export function Admin() {
   const [blogCover, setBlogCover] = useState("linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)");
   const [blogContent, setBlogContent] = useState("");
   const [showPreview, setShowPreview] = useState(false);
+  const [contentImages, setContentImages] = useState<{ [key: string]: string }>({});
 
   // Form states - Testimonial
   const [editingTestId, setEditingTestId] = useState<string | null>(null);
@@ -77,6 +81,7 @@ export function Admin() {
   const [testQuote, setTestQuote] = useState("");
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const contentImageInputRef = useRef<HTMLInputElement>(null);
 
   // Presets for cover background
   const PRESET_GRADIENTS = [
@@ -222,6 +227,67 @@ export function Admin() {
     }, 0);
   };
 
+  const extractBase64Images = (content: string) => {
+    const mapping: { [key: string]: string } = {};
+    let index = 0;
+    const processedContent = content.replace(
+      /src=["'](data:image\/[^;]+;base64,[^"']+)["']/g,
+      (_, base64Url) => {
+        const key = `local-image-${Date.now()}-${index++}`;
+        mapping[key] = base64Url;
+        return `src="${key}"`;
+      }
+    );
+    return { processedContent, mapping };
+  };
+
+  const resolveImagesForDisplay = (content: string) => {
+    let processed = content;
+    Object.entries(contentImages).forEach(([key, base64]) => {
+      processed = processed.split(key).join(base64);
+    });
+    return processed;
+  };
+
+  const insertLink = () => {
+    const url = prompt("Enter URL:", "https://");
+    if (url === null) return; // User cancelled
+    insertTag(`<a href="${url}" target="_blank" rel="noopener noreferrer">`, "</a>");
+  };
+
+  const insertImage = () => {
+    const choice = confirm("Click OK to upload a local image, or Cancel to enter an image URL.");
+    if (choice) {
+      contentImageInputRef.current?.click();
+    } else {
+      const url = prompt("Enter Image URL:", "https://");
+      if (url) {
+        const alt = prompt("Enter image description (alt text):", "Image");
+        insertTag(`<img src="${url}" alt="${alt || 'Image'}" />`, "");
+      }
+    }
+  };
+
+  const handleContentImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File size is too large (max 5MB)");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          const key = `local-image-${Date.now()}`;
+          setContentImages(prev => ({ ...prev, [key]: reader.result as string }));
+          insertTag(`<img src="${key}" alt="${file.name}" />`, "");
+        }
+      };
+      reader.readAsDataURL(file);
+      e.target.value = ""; // Reset
+    }
+  };
+
   // Handle Publish / Update Blog
   const handlePublishBlog = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -233,6 +299,7 @@ export function Admin() {
 
     let updatedBlogsList: Blog[];
     let commitMsg = "";
+    const finalContent = resolveImagesForDisplay(blogContent);
 
     if (editingBlogId) {
       // Edit mode
@@ -248,7 +315,7 @@ export function Admin() {
               authorDesignation: blogAuthorDesignation || "Contributor",
               format: blogFormat,
               coverPhoto: blogCover,
-              content: blogContent,
+              content: finalContent,
             }
           : b
       );
@@ -265,7 +332,7 @@ export function Admin() {
         authorName: blogAuthorName || "SvaBharat Thinker",
         authorDesignation: blogAuthorDesignation || "Contributor",
         coverPhoto: blogCover,
-        content: blogContent || "<p>Write content here...</p>",
+        content: finalContent || "<p>Write content here...</p>",
         createdAt: new Date().toISOString(),
         published: true
       };
@@ -282,6 +349,7 @@ export function Admin() {
     setBlogAuthorDesignation("");
     setBlogContent("");
     setBlogCover(PRESET_GRADIENTS[0].value);
+    setContentImages({});
     
     // Switch to manage list view
     setBlogSubTab("manage");
@@ -309,7 +377,11 @@ export function Admin() {
     setBlogAuthorName(blog.authorName);
     setBlogAuthorDesignation(blog.authorDesignation);
     setBlogCover(blog.coverPhoto);
-    setBlogContent(blog.content);
+    
+    const { processedContent, mapping } = extractBase64Images(blog.content);
+    setContentImages(mapping);
+    setBlogContent(processedContent);
+    
     setBlogSubTab("create");
   };
 
@@ -501,7 +573,17 @@ export function Admin() {
           {/* Subtabs layout */}
           <div className="flex gap-4 border-b border-neutral-200 pb-4">
             <button 
-              onClick={() => { setBlogSubTab("create"); setEditingBlogId(null); }}
+              onClick={() => { 
+                setBlogSubTab("create"); 
+                setEditingBlogId(null); 
+                setBlogTitle("");
+                setBlogExcerpt("");
+                setBlogAuthorName("");
+                setBlogAuthorDesignation("");
+                setBlogContent("");
+                setBlogCover(PRESET_GRADIENTS[0].value);
+                setContentImages({});
+              }}
               className={`pb-2 text-sm font-bold border-b-2 transition-all ${
                 blogSubTab === "create" && !editingBlogId
                   ? "border-orange-500 text-neutral-900" 
@@ -689,20 +771,51 @@ export function Admin() {
                     </button>
                   </div>
 
-                  {!showPreview ? (
+                   {!showPreview ? (
                     <div className="border border-neutral-200 rounded-2xl overflow-hidden focus-within:ring-2 focus-within:ring-orange-500 focus-within:border-transparent transition-all">
+                      {/* Hidden image input for editor content */}
+                      <input 
+                        type="file" 
+                        ref={contentImageInputRef}
+                        accept="image/*" 
+                        onChange={handleContentImageUpload} 
+                        className="hidden" 
+                      />
+
                       {/* Editor Toolbar */}
                       <div className="bg-neutral-50 border-b border-neutral-200 px-4 py-2.5 flex flex-wrap gap-2 items-center">
-                        <button type="button" onClick={() => insertTag("<h2>", "</h2>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold" title="Heading 2">H2</button>
-                        <button type="button" onClick={() => insertTag("<h3>", "</h3>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold" title="Heading 3">H3</button>
-                        <button type="button" onClick={() => insertTag("<p>", "</p>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold" title="Paragraph">P</button>
+                        {/* Headers & Paragraph */}
+                        <button type="button" onClick={() => insertTag("<h1>", "</h1>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 1">H1</button>
+                        <button type="button" onClick={() => insertTag("<h2>", "</h2>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 2">H2</button>
+                        <button type="button" onClick={() => insertTag("<h3>", "</h3>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 3">H3</button>
+                        <button type="button" onClick={() => insertTag("<p>", "</p>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Paragraph">P</button>
+                        
                         <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
-                        <button type="button" onClick={() => insertTag("<strong>", "</strong>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg" title="Bold"><Bold className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag("<em>", "</em>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg" title="Italic"><Italic className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag("<u>", "</u>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg" title="Underline"><Underline className="w-4 h-4" /></button>
+                        
+                        {/* Formatting */}
+                        <button type="button" onClick={() => insertTag("<strong>", "</strong>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-sm font-extrabold transition-colors duration-150" title="Bold">B</button>
+                        <button type="button" onClick={() => insertTag("<em>", "</em>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-sm font-bold italic transition-colors duration-150" title="Italic">I</button>
+                        <button type="button" onClick={() => insertTag("<u>", "</u>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-sm font-bold underline transition-colors duration-150" title="Underline">U</button>
+                        
                         <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
-                        <button type="button" onClick={() => insertTag("<ul className='list-disc pl-6 space-y-2'><li>", "</li></ul>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg" title="Unordered List"><List className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag("<a href='URL' className='text-orange-600 font-semibold hover:underline'>", "</a>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg" title="Link"><Link2 className="w-4 h-4" /></button>
+                        
+                        {/* Alignment */}
+                        <button type="button" onClick={() => insertTag('<div style="text-align: left;">', '</div>')} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Align Left"><AlignLeft className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag('<div style="text-align: center;">', '</div>')} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Align Center"><AlignCenter className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag('<div style="text-align: right;">', '</div>')} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Align Right"><AlignRight className="w-4 h-4" /></button>
+                        
+                        <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
+                        
+                        {/* Lists & Quotes */}
+                        <button type="button" onClick={() => insertTag("<ul>\n  <li>", "</li>\n</ul>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Unordered List"><List className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag("<ol>\n  <li>", "</li>\n</ol>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Ordered List"><ListOrdered className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag("<blockquote>", "</blockquote>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Quote"><Quote className="w-4 h-4" /></button>
+                        
+                        <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
+                        
+                        {/* Media */}
+                        <button type="button" onClick={insertLink} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Link"><Link2 className="w-4 h-4" /></button>
+                        <button type="button" onClick={insertImage} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Image"><Image className="w-4 h-4" /></button>
                       </div>
 
                       {/* Editor Textarea */}
@@ -717,9 +830,9 @@ export function Admin() {
                     </div>
                   ) : (
                     /* Content HTML Preview */
-                    <div className="border border-neutral-200 rounded-2xl p-6 min-h-[300px] prose max-w-none bg-neutral-50/30 overflow-y-auto leading-relaxed text-neutral-700">
+                    <div className="border border-neutral-200 rounded-2xl p-6 min-h-[300px] rich-text-content max-w-none bg-neutral-50/30 overflow-y-auto leading-relaxed text-neutral-700">
                       {blogContent ? (
-                        <div dangerouslySetInnerHTML={{ __html: blogContent }} />
+                        <div dangerouslySetInnerHTML={{ __html: resolveImagesForDisplay(blogContent) }} />
                       ) : (
                         <p className="text-neutral-400 italic">No content written yet. Editor is empty.</p>
                       )}
@@ -745,6 +858,7 @@ export function Admin() {
                         setBlogExcerpt("");
                         setBlogContent("");
                         setBlogCover(PRESET_GRADIENTS[0].value);
+                        setContentImages({});
                         setBlogSubTab("manage");
                       }}
                       className="px-6 py-3.5 border border-neutral-200 text-neutral-600 rounded-xl font-semibold hover:bg-neutral-100 transition-colors cursor-pointer"
