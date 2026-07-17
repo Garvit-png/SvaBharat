@@ -1,0 +1,41 @@
+[
+  {
+    "id": "blog-1",
+    "title": "The Architecture of Indian Thought",
+    "excerpt": "Exploring why we must look back to see forward: an introduction to thinking from first principles in the context of Indian intellectual traditions.",
+    "content": "<h2>Introduction</h2><p>To understand the present and build the future of Bharat, we must first examine the roots of our thought patterns. For centuries, our civilizational frameworks evolved dynamically, solving complex societal challenges through dialogue, decentralized structures, and a deep reverence for nature and community.</p><h2>The Core Idea</h2><p>Original thinking does not begin by discarding modern advancements, but by knowing where one stands. When we borrow frameworks uncritically, we miss the nuances of ground realities. First principles thinking in India is not about looking back with nostalgia; it is about reclaiming our agency to think, judge, and act from our own center—the 'Sva'.</p>",
+    "category": "Policy",
+    "readTime": "5 min read",
+    "authorName": "Dr. Sridhar Vembu",
+    "authorDesignation": "Founder, Zoho & Thinker",
+    "coverPhoto": "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
+    "createdAt": "2026-10-12T10:00:00Z",
+    "published": true
+  },
+  {
+    "id": "blog-2",
+    "title": "Reimagining the Indian University",
+    "excerpt": "Questioning the inherited models of higher education and proposing a structural shift towards grounded research, vernacular thinking, and practical building.",
+    "content": "<h2>The Inherited Blueprint</h2><p>Our university models remain largely unchanged since the colonial era, designed for standardization rather than original exploration. If we are to build a self-reliant Bharat, our higher education institutions must become centers of grounded inquiry where students engage directly with local challenges.</p><h2>A Rooted Pedagogy</h2><p>A rooted university integrates classroom instruction with field research. By studying our local ecosystems, languages, and traditional knowledge structures alongside modern science, we develop solutions that are both globally competitive and locally relevant.</p>",
+    "category": "Education",
+    "readTime": "7 min read",
+    "authorName": "Prof. Raghavan",
+    "authorDesignation": "Educationist & Researcher",
+    "coverPhoto": "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
+    "createdAt": "2026-11-05T09:15:00Z",
+    "published": true
+  },
+  {
+    "id": "blog-3",
+    "title": "Reclaiming the Commons: Water Systems",
+    "excerpt": "How ancient decentralized water harvesting structures in rural India offer modern solutions for water security and environmental resilience.",
+    "content": "<h2>Decentralized Wisdom</h2><p>Before mega-dams and massive centralized canal systems, India survived and thrived on community-managed ponds, stepwells, and catchments. These were not primitive solutions, but highly sophisticated hydrological systems built to match local geological layouts.</p><h2>Restoring the Network</h2><p>By empowering local panchayats and communities to restore these historical water networks, we create climate-resilient water reserves, raise underground water tables, and build local self-reliance from the bottom up.</p>",
+    "category": "Environment",
+    "readTime": "6 min read",
+    "authorName": "Ananya Rao",
+    "authorDesignation": "Water Conservationist",
+    "coverPhoto": "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+    "createdAt": "2026-11-20T14:30:00Z",
+    "published": true
+  }
+]

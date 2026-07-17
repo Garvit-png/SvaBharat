@@ -1,9 +1,27 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 import { CutTitle } from "../components/CutTitle";
 import { Navbar } from "../components/Navbar";
+import { getTestimonials, type Testimonial } from "../utils/storage";
+import { Quote } from "lucide-react";
+
+
 
 export function Home() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    setTestimonials(getTestimonials());
+    const handleUpdate = () => {
+      setTestimonials(getTestimonials());
+    };
+    window.addEventListener("svabharat_testimonials_updated", handleUpdate);
+    return () => {
+      window.removeEventListener("svabharat_testimonials_updated", handleUpdate);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
 
@@ -135,6 +153,41 @@ export function Home() {
           </Link>
         </div>
       </section>
+
+      {/* ── TESTIMONIALS (VOICES OF THE MOVEMENT) ── */}
+      {testimonials.length > 0 && (
+        <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+          <CutTitle position="top-left">Voices of the Movement</CutTitle>
+
+          <div className="mt-16 md:mt-20 max-w-6xl mx-auto">
+            <p className="text-lg md:text-xl text-neutral-500 font-light mb-12 text-center">
+              What researchers, practitioners, and builders say about the SvaBharat movement.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((test) => (
+                <div 
+                  key={test.id} 
+                  className="bg-white rounded-3xl p-8 border border-neutral-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="w-10 h-10 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <Quote className="w-5 h-5 fill-current" />
+                    </div>
+                    <p className="text-neutral-600 text-lg font-light leading-relaxed mb-8 italic">
+                      "{test.quote}"
+                    </p>
+                  </div>
+                  <div className="border-t border-neutral-50 pt-6">
+                    <h4 className="font-bold text-neutral-900">{test.name}</h4>
+                    <p className="text-xs font-semibold text-orange-600 mt-1">{test.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── NEWSLETTER ── */}
       <section className="relative w-full py-16 md:py-20 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">

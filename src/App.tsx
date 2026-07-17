@@ -5,6 +5,7 @@ import { About } from "./pages/About";
 import { Ideas } from "./pages/Ideas";
 import { Blogs } from "./pages/Blogs";
 import { Contact } from "./pages/Contact";
+import { Admin } from "./pages/Admin";
 
 function App() {
   return (
@@ -17,9 +18,11 @@ function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
         </Route>
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+

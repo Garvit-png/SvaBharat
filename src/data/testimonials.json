@@ -1,0 +1,23 @@
+[
+  {
+    "id": "test-1",
+    "name": "Dr. Amit Chandra",
+    "role": "Senior Policy Analyst, Center for Civil Society",
+    "quote": "SvaBharat is the intellectual breath of fresh air we need in policy circles. Rebuilding from ground realities instead of copying Western models is long overdue.",
+    "createdAt": "2026-09-01T12:00:00Z"
+  },
+  {
+    "id": "test-2",
+    "name": "Meera Sen",
+    "role": "Social Entrepreneur, Gram Vikas",
+    "quote": "A brilliant effort to bridge practice and academic rigor. SvaBharat creates spaces for thinkers who care about our own standpoint and self-reliance.",
+    "createdAt": "2026-09-15T15:30:00Z"
+  },
+  {
+    "id": "test-3",
+    "name": "Rajesh Kumar",
+    "role": "Software Architect & Tech Policy Writer",
+    "quote": "It is exciting to see technology, culture, and design coming together under first principles thinking for Bharat. An invaluable hub for emerging ideas.",
+    "createdAt": "2026-10-01T10:00:00Z"
+  }
+]
