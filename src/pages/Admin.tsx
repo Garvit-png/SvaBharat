@@ -107,7 +107,8 @@ export function Admin() {
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
-    if (passcode === "1234") {
+    const correctPasscode = import.meta.env.VITE_ADMIN_PASSCODE || "1234";
+    if (passcode === correctPasscode) {
       sessionStorage.setItem("svabharat_admin_auth", "true");
       setIsAuthenticated(true);
       setAuthError("");
