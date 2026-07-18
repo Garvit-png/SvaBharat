@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Settings } from "lucide-react";
+
 
 export function Footer() {
   return (
@@ -70,6 +72,13 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-neutral-300/50 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-600">
         <p>© {new Date().getFullYear()} SvaBharat. All rights reserved.</p>
+        <Link 
+          to="/admin" 
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-900/5 hover:bg-neutral-900/10 border border-neutral-300/60 text-xs font-semibold text-neutral-700 hover:text-neutral-900 transition-all shadow-sm"
+        >
+          <Settings className="w-3.5 h-3.5" />
+          Admin Portal
+        </Link>
       </div>
     </footer>
   );
