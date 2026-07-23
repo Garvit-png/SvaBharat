@@ -28,10 +28,10 @@ export default {
           light: '#F3F2EA',
         },
         cream: {
-          DEFAULT: '#EADCB9', // Darker Warm Beige Background
-          dark: '#D8C6A5',    // Darker Sand
-          deep: '#C2B090',    // Darker Warm Stone Deep
-          light: '#FAF5EB',
+          DEFAULT: '#FFFFFF', // Pure White Background
+          dark: '#FAFAFA',    // Clean light gray for section alternate
+          deep: '#F0F0F0',    // Light stone border/separator
+          light: '#FFFFFF',
         },
         charcoal: {
           DEFAULT: '#2B2927', // Rich Charcoal text
