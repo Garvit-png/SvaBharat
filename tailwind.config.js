@@ -8,35 +8,35 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#F97316', // Brand Saffron/Orange
-          hover: '#EA580C',
-          light: '#FFF7ED',
+          DEFAULT: '#1A357F', // Ashoka Chakra Navy
+          hover: '#13275C',
+          light: '#E8ECF8',
         },
         secondary: {
-          DEFAULT: '#16A34A', // Brand Green
-          hover: '#15803D',
-          light: '#F0FDF4',
-        },
-        burgundy: {
-          DEFAULT: '#7A2A2D', // Muted Burgundy
-          hover: '#611F22',
-          light: '#F8ECEE',
+          DEFAULT: '#C86E1A', // Deep Saffron
+          hover: '#A85A14',
+          light: '#FAF0E8',
         },
         success: {
-          DEFAULT: '#A8A16B', // Sage Green
-          hover: '#8E8858',
-          light: '#F3F2EA',
+          DEFAULT: '#3F7D49', // Heritage Green
+          hover: '#2E5D36',
+          light: '#EBF2ED',
         },
         cream: {
-          DEFAULT: '#FAF5EB', // Clean, bright light cream background
-          dark: '#F5EBD7',    // Original soft warm beige from main footer
-          deep: '#EADCB9',    // Darker sand for separators
-          light: '#FAF5EB',
+          DEFAULT: '#F4EFE3', // Warm Ivory / Paper
+          dark: '#E4D7BE',    // Warm Beige
+          deep: '#D2C1A3',
+          light: '#FFFFFF',   // Pure White
         },
         charcoal: {
-          DEFAULT: '#2B2927', // Rich Charcoal text
-          light: '#4E4A47',
-          deep: '#1E1C1A',    // Deep Charcoal (prevents pure black)
+          DEFAULT: '#1E1E1E', // Rich Charcoal
+          light: '#6B7280',   // Soft Gray
+          deep: '#0F0F0F',
+        },
+        tricolour: {
+          saffron: '#E38B2C',
+          white: '#FCFBF8',
+          green: '#2E7D32',
         },
       },
       fontFamily: {
