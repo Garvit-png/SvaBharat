@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#7C8660', // Deep Sage
-          hover: '#636B4D',
-          light: '#EDF0E8',
+          DEFAULT: '#F97316', // Brand Saffron/Orange
+          hover: '#EA580C',
+          light: '#FFF7ED',
         },
         secondary: {
-          DEFAULT: '#D89A5A', // Terracotta
-          hover: '#C28448',
-          light: '#F7ECDC',
+          DEFAULT: '#16A34A', // Brand Green
+          hover: '#15803D',
+          light: '#F0FDF4',
         },
         burgundy: {
           DEFAULT: '#7A2A2D', // Muted Burgundy

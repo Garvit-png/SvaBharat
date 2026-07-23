@@ -46,14 +46,14 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
         }}
       >
         <svg viewBox="0 0 200 200" className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] chakra-svg">
-          <circle cx="100" cy="100" r="96" fill="none" stroke="#7C8660" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="90" fill="none" stroke="#7C8660" strokeWidth="1" />
-          <circle cx="100" cy="100" r="16" fill="none" stroke="#7C8660" strokeWidth="1.5" />
-          <circle cx="100" cy="100" r="8" fill="#7C8660" />
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#F97316" strokeWidth="1.5" />
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#F97316" strokeWidth="1" />
+          <circle cx="100" cy="100" r="16" fill="none" stroke="#F97316" strokeWidth="1.5" />
+          <circle cx="100" cy="100" r="8" fill="#F97316" />
           {Array.from({ length: 24 }).map((_, i) => (
             <g key={i} transform={`rotate(${i * 15} 100 100)`}>
-              <line x1="100" y1="84" x2="100" y2="16" stroke="#7C8660" strokeWidth="1" />
-              <circle cx="100" cy="10" r="1.5" fill="#7C8660" />
+              <line x1="100" y1="84" x2="100" y2="16" stroke="#F97316" strokeWidth="1" />
+              <circle cx="100" cy="10" r="1.5" fill="#F97316" />
             </g>
           ))}
         </svg>
