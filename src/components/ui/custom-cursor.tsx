@@ -188,21 +188,6 @@ export function CustomCursor() {
           </svg>
         </motion.div>
       </motion.div>
-
-      {/* Inner Solid Orange Tracking Dot (for user visual feedback) */}
-      <motion.div
-        style={{
-          x: innerX,
-          y: innerY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-        animate={{
-          scale: isHovered ? 0.6 : 1.0,
-          opacity: isHovered ? 0.35 : 1.0,
-        }}
-        className="absolute w-2 h-2 rounded-full bg-[#E38B2C] z-50 shadow-sm"
-      />
     </div>
   );
 }
