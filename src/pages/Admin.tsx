@@ -459,14 +459,14 @@ export function Admin() {
   // Render Passcode Screen (Authentication Gate)
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 select-none">
-        <div className="bg-white p-8 md:p-10 rounded-[2rem] border border-neutral-100 shadow-xl max-w-md w-full text-center transition-all">
-          <div className="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Settings className="w-6 h-6 text-orange-600 animate-spin-slow" />
+      <div className="min-h-screen bg-cream-dark flex items-center justify-center p-6 select-none font-sans">
+        <div className="bg-white p-8 md:p-10 rounded-2xl border-2 border-white shadow-xl max-w-md w-full text-center transition-all">
+          <div className="w-12 h-12 bg-secondary-light rounded-xl flex items-center justify-center mx-auto mb-6 border border-secondary/20">
+            <Settings className="w-6 h-6 text-secondary animate-spin-slow" />
           </div>
           
-          <h2 className="text-3xl font-bold text-neutral-800 tracking-tight mb-2">Admin Access</h2>
-          <p className="text-sm text-neutral-500 mb-8">Please enter the passcode to continue</p>
+          <h2 className="text-3xl font-serif font-extrabold text-charcoal tracking-tight mb-2">Admin Access</h2>
+          <p className="text-sm font-semibold text-neutral-500 mb-8">Please enter the passcode to continue</p>
           
           <form onSubmit={handleUnlock} className="space-y-6">
             <div>
@@ -476,23 +476,23 @@ export function Admin() {
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value.replace(/\D/g, ""))}
                 placeholder="••••"
-                className="w-full text-center tracking-[1.5em] text-xl font-bold px-4 py-4 rounded-2xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all bg-neutral-50/50"
+                className="w-full text-center tracking-[1.5em] text-xl font-bold px-4 py-4 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-cream/20 text-charcoal transition-all"
               />
               {authError && (
-                <p className="text-xs text-red-500 font-semibold mt-3 animate-pulse">{authError}</p>
+                <p className="text-xs text-burgundy font-bold mt-3 animate-pulse">{authError}</p>
               )}
             </div>
             
             <button 
               type="submit"
-              className="w-full py-4 bg-slate-900 text-white rounded-2xl font-semibold hover:bg-orange-600 transition-colors shadow-md active:scale-[0.98]"
+              className="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-secondary transition-colors shadow-sm active:scale-[0.98] cursor-pointer"
             >
               Unlock
             </button>
           </form>
           
-          <div className="mt-8 pt-6 border-t border-neutral-100 flex flex-col gap-3">
-            <Link to="/" className="text-sm font-semibold text-neutral-400 hover:text-neutral-700 transition-colors block">
+          <div className="mt-8 pt-6 border-t border-white/40 flex flex-col gap-3">
+            <Link to="/" className="text-xs font-bold text-neutral-450 hover:text-primary transition-colors block uppercase tracking-wider">
               Return to site
             </Link>
           </div>
@@ -503,14 +503,14 @@ export function Admin() {
 
   // Render Main Admin Dashboard
   return (
-    <div className="min-h-screen bg-slate-50 text-neutral-800 pb-24 px-4 sm:px-6 md:px-12 lg:px-24">
+    <div className="min-h-screen bg-cream text-charcoal pb-24 px-4 sm:px-6 md:px-12 lg:px-24 font-sans">
       {/* Sync Status Floating Notification */}
       {syncStatus && (
-        <div className="fixed bottom-6 right-6 z-50 bg-neutral-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-neutral-800 max-w-md text-sm animate-fade-in font-medium">
+        <div className="fixed bottom-6 right-6 z-50 bg-charcoal text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 border border-neutral-805 max-w-md text-sm animate-fade-in font-bold">
           {isSyncing ? (
-            <RefreshCw className="w-4 h-4 text-orange-400 animate-spin flex-shrink-0" />
+            <RefreshCw className="w-4 h-4 text-secondary animate-spin flex-shrink-0" />
           ) : (
-            <Check className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+            <Check className="w-4 h-4 text-success flex-shrink-0" />
           )}
           <span>{syncStatus}</span>
         </div>
@@ -519,7 +519,7 @@ export function Admin() {
       {/* Top Navigation */}
       <header className="py-8 flex flex-col gap-6">
         <div>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-all group font-semibold">
+          <Link to="/" className="inline-flex items-center gap-2 text-xs text-neutral-500 hover:text-primary transition-all group font-bold uppercase tracking-wider">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </Link>
@@ -527,13 +527,13 @@ export function Admin() {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-2 text-neutral-900">Admin Portal</h1>
-            <p className="text-neutral-500 font-medium">Manage your Blogs and Testimonials. Changes auto-deploy.</p>
+            <h1 className="text-4xl md:text-5xl font-serif font-extrabold tracking-tight mb-2 text-charcoal">Admin Portal</h1>
+            <p className="text-neutral-600 font-semibold text-sm leading-relaxed">Manage your Blogs and Testimonials. Changes auto-deploy.</p>
           </div>
           <div>
             <button 
               onClick={handleLogout}
-              className="px-4 py-2 text-xs font-bold text-neutral-500 hover:text-red-600 border border-neutral-200 bg-white hover:border-red-200 rounded-xl transition-all"
+              className="px-4 py-2 text-xs font-bold text-neutral-500 hover:text-burgundy border-2 border-white bg-white hover:border-burgundy-light rounded-xl transition-all cursor-pointer active:scale-95 shadow-sm"
             >
               Sign Out
             </button>
@@ -542,13 +542,13 @@ export function Admin() {
       </header>
 
       {/* Master Tabs (Blogs / Testimonials) */}
-      <div className="bg-neutral-200/60 p-1.5 rounded-2xl flex w-full sm:w-fit mb-8 gap-2 border border-neutral-300/30">
+      <div className="bg-cream-dark p-1.5 rounded-2xl flex w-full sm:w-fit mb-8 gap-2 border-2 border-white shadow-sm">
         <button 
           onClick={() => setActiveTab("blogs")}
-          className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all ${
+          className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
             activeTab === "blogs" 
-              ? "bg-white text-neutral-900 shadow-md" 
-              : "text-neutral-500 hover:text-neutral-800"
+              ? "bg-white text-primary shadow-md border border-white/20" 
+              : "text-neutral-550 hover:text-primary"
           }`}
         >
           <FileText className="w-4 h-4" />
@@ -556,10 +556,10 @@ export function Admin() {
         </button>
         <button 
           onClick={() => setActiveTab("testimonials")}
-          className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all ${
+          className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
             activeTab === "testimonials" 
-              ? "bg-white text-neutral-900 shadow-md" 
-              : "text-neutral-500 hover:text-neutral-800"
+              ? "bg-white text-primary shadow-md border border-white/20" 
+              : "text-neutral-550 hover:text-primary"
           }`}
         >
           <MessageSquare className="w-4 h-4" />
@@ -571,7 +571,7 @@ export function Admin() {
       {activeTab === "blogs" && (
         <div className="space-y-6">
           {/* Subtabs layout */}
-          <div className="flex gap-4 border-b border-neutral-200 pb-4">
+          <div className="flex gap-4 border-b border-white/45 pb-4">
             <button 
               onClick={() => { 
                 setBlogSubTab("create"); 
@@ -584,27 +584,27 @@ export function Admin() {
                 setBlogCover(PRESET_GRADIENTS[0].value);
                 setContentImages({});
               }}
-              className={`pb-2 text-sm font-bold border-b-2 transition-all ${
+              className={`pb-2 text-sm font-bold border-b-2 transition-all cursor-pointer ${
                 blogSubTab === "create" && !editingBlogId
-                  ? "border-orange-500 text-neutral-900" 
-                  : "border-transparent text-neutral-500 hover:text-neutral-800"
+                  ? "border-primary text-primary" 
+                  : "border-transparent text-neutral-500 hover:text-primary"
               }`}
             >
               <Plus className="w-4 h-4 inline mr-1" />
               Create Blog
             </button>
             {editingBlogId && (
-              <span className="pb-2 text-sm font-bold border-b-2 border-orange-500 text-neutral-900">
+              <span className="pb-2 text-sm font-bold border-b-2 border-primary text-primary">
                 <Edit3 className="w-4 h-4 inline mr-1" />
                 Edit Blog: {blogTitle.slice(0, 15)}...
               </span>
             )}
             <button 
               onClick={() => setBlogSubTab("manage")}
-              className={`pb-2 text-sm font-bold border-b-2 transition-all ${
+              className={`pb-2 text-sm font-bold border-b-2 transition-all cursor-pointer ${
                 blogSubTab === "manage" 
-                  ? "border-orange-500 text-neutral-900" 
-                  : "border-transparent text-neutral-500 hover:text-neutral-800"
+                  ? "border-primary text-primary" 
+                  : "border-transparent text-neutral-500 hover:text-primary"
               }`}
             >
               Manage Blogs ({blogs.length})
@@ -613,8 +613,8 @@ export function Admin() {
 
           {/* Subtab: CREATE/EDIT BLOG FORM */}
           {blogSubTab === "create" && (
-            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-100 shadow-sm max-w-5xl">
-              <h2 className="text-2xl font-bold mb-8 text-neutral-900">
+            <div className="bg-white rounded-2xl p-6 sm:p-10 border-2 border-white shadow-md max-w-5xl">
+              <h2 className="text-2xl font-serif font-extrabold mb-8 text-charcoal">
                 {editingBlogId ? "Edit Blog Post" : "New Blog Post"}
               </h2>
 
@@ -628,7 +628,7 @@ export function Admin() {
                       placeholder="Enter the main title"
                       value={blogTitle}
                       onChange={(e) => setBlogTitle(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm font-semibold bg-cream/10"
                     />
                   </div>
 
@@ -639,7 +639,7 @@ export function Admin() {
                       placeholder="Enter author's name"
                       value={blogAuthorName}
                       onChange={(e) => setBlogAuthorName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm font-semibold bg-cream/10"
                     />
                   </div>
 
@@ -650,7 +650,7 @@ export function Admin() {
                       rows={2}
                       value={blogExcerpt}
                       onChange={(e) => setBlogExcerpt(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium resize-none"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm font-semibold resize-none bg-cream/10"
                     />
                   </div>
 
@@ -659,7 +659,7 @@ export function Admin() {
                     <select 
                       value={blogCategory}
                       onChange={(e) => setBlogCategory(e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium bg-white"
+                      className="w-full px-4 py-3.5 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-semibold bg-white"
                     >
                       <option value="Policy">Policy</option>
                       <option value="Education">Education</option>
@@ -676,7 +676,7 @@ export function Admin() {
                       placeholder="e.g. 5 min read"
                       value={blogReadTime}
                       onChange={(e) => setBlogReadTime(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-semibold bg-cream/10"
                     />
                   </div>
 
@@ -687,7 +687,7 @@ export function Admin() {
                       placeholder="e.g. Research Associate / Director"
                       value={blogAuthorDesignation}
                       onChange={(e) => setBlogAuthorDesignation(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-semibold bg-cream/10"
                     />
                   </div>
 
@@ -696,7 +696,7 @@ export function Admin() {
                     <select 
                       value={blogFormat}
                       onChange={(e) => setBlogFormat(e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium bg-white"
+                      className="w-full px-4 py-3.5 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-semibold bg-white"
                     >
                       <option value="Write Blog (Rich Text Editor)">Write Blog (Rich Text Editor)</option>
                       <option value="Markdown Import">Markdown Import (Coming Soon)</option>
@@ -710,7 +710,7 @@ export function Admin() {
                   
                   {/* Preset Gradients selectors */}
                   <div className="flex flex-wrap gap-3 items-center mb-4">
-                    <span className="text-xs text-neutral-400 font-semibold mr-2">Quick Presets:</span>
+                    <span className="text-xs text-neutral-400 font-bold mr-2">Quick Presets:</span>
                     {PRESET_GRADIENTS.map((preset) => (
                       <button 
                         key={preset.name}
@@ -728,23 +728,23 @@ export function Admin() {
                   {/* Upload box */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                     <div className="md:col-span-2">
-                      <label className="border-2 border-dashed border-neutral-200 hover:border-orange-400 rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer transition-colors relative h-40">
+                      <label className="border-2 border-dashed border-white/80 hover:border-primary rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer transition-colors relative h-40">
                         <input 
                           type="file" 
                           accept="image/*" 
                           onChange={handleImageUpload} 
                           className="hidden" 
                         />
-                        <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-3">
+                        <div className="w-10 h-10 bg-secondary-light text-secondary rounded-xl flex items-center justify-center mb-3">
                           <Upload className="w-5 h-5" />
                         </div>
                         <p className="text-sm font-bold text-neutral-700 mb-1">Click to upload or drag and drop</p>
-                        <p className="text-xs text-neutral-400 font-medium">PNG, JPG, WebP up to 10 MB</p>
+                        <p className="text-xs text-neutral-400 font-bold">PNG, JPG, WebP up to 10 MB</p>
                       </label>
                     </div>
 
                     {/* Preview of Cover */}
-                    <div className="h-40 rounded-2xl border border-neutral-100 flex items-center justify-center overflow-hidden shadow-sm relative group bg-neutral-50">
+                    <div className="h-40 rounded-2xl border-2 border-white flex items-center justify-center overflow-hidden shadow-md relative group bg-cream-dark">
                       {blogCover.startsWith("linear-gradient") ? (
                         <div className="w-full h-full" style={{ background: blogCover }} />
                       ) : (
@@ -756,15 +756,14 @@ export function Admin() {
                     </div>
                   </div>
                 </div>
-
-                {/* Rich Text Editor Component */}
+                                {/* Rich Text Editor Component */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <label className="text-xs font-bold text-neutral-500 uppercase tracking-widest block">Blog Content</label>
                     <button 
                       type="button" 
                       onClick={() => setShowPreview(!showPreview)}
-                      className="text-xs font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1.5 cursor-pointer"
+                      className="text-xs font-bold text-primary hover:text-secondary flex items-center gap-1.5 cursor-pointer"
                     >
                       <Eye className="w-3.5 h-3.5" />
                       {showPreview ? "Show Editor" : "Show HTML Preview"}
@@ -772,7 +771,7 @@ export function Admin() {
                   </div>
 
                    {!showPreview ? (
-                    <div className="border border-neutral-200 rounded-2xl overflow-hidden focus-within:ring-2 focus-within:ring-orange-500 focus-within:border-transparent transition-all">
+                    <div className="border-2 border-white rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all">
                       {/* Hidden image input for editor content */}
                       <input 
                         type="file" 
@@ -783,39 +782,39 @@ export function Admin() {
                       />
 
                       {/* Editor Toolbar */}
-                      <div className="bg-neutral-50 border-b border-neutral-200 px-4 py-2.5 flex flex-wrap gap-2 items-center">
+                      <div className="bg-cream-dark border-b border-white/30 px-4 py-2.5 flex flex-wrap gap-2 items-center">
                         {/* Headers & Paragraph */}
-                        <button type="button" onClick={() => insertTag("<h1>", "</h1>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 1">H1</button>
-                        <button type="button" onClick={() => insertTag("<h2>", "</h2>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 2">H2</button>
-                        <button type="button" onClick={() => insertTag("<h3>", "</h3>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 3">H3</button>
-                        <button type="button" onClick={() => insertTag("<p>", "</p>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-xs font-extrabold transition-colors duration-150" title="Paragraph">P</button>
+                        <button type="button" onClick={() => insertTag("<h1>", "</h1>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 1">H1</button>
+                        <button type="button" onClick={() => insertTag("<h2>", "</h2>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 2">H2</button>
+                        <button type="button" onClick={() => insertTag("<h3>", "</h3>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-xs font-extrabold transition-colors duration-150" title="Heading 3">H3</button>
+                        <button type="button" onClick={() => insertTag("<p>", "</p>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-xs font-extrabold transition-colors duration-150" title="Paragraph">P</button>
                         
-                        <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
+                        <span className="w-[1px] h-4 bg-neutral-400/40 mx-1" />
                         
                         {/* Formatting */}
-                        <button type="button" onClick={() => insertTag("<strong>", "</strong>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-sm font-extrabold transition-colors duration-150" title="Bold">B</button>
-                        <button type="button" onClick={() => insertTag("<em>", "</em>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-sm font-bold italic transition-colors duration-150" title="Italic">I</button>
-                        <button type="button" onClick={() => insertTag("<u>", "</u>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg text-sm font-bold underline transition-colors duration-150" title="Underline">U</button>
+                        <button type="button" onClick={() => insertTag("<strong>", "</strong>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-sm font-extrabold transition-colors duration-150" title="Bold">B</button>
+                        <button type="button" onClick={() => insertTag("<em>", "</em>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-sm font-bold italic transition-colors duration-150" title="Italic">I</button>
+                        <button type="button" onClick={() => insertTag("<u>", "</u>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg text-sm font-bold underline transition-colors duration-150" title="Underline">U</button>
                         
-                        <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
+                        <span className="w-[1px] h-4 bg-neutral-400/40 mx-1" />
                         
                         {/* Alignment */}
-                        <button type="button" onClick={() => insertTag('<div style="text-align: left;">', '</div>')} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Align Left"><AlignLeft className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag('<div style="text-align: center;">', '</div>')} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Align Center"><AlignCenter className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag('<div style="text-align: right;">', '</div>')} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Align Right"><AlignRight className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag('<div style="text-align: left;">', '</div>')} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Align Left"><AlignLeft className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag('<div style="text-align: center;">', '</div>')} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Align Center"><AlignCenter className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag('<div style="text-align: right;">', '</div>')} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Align Right"><AlignRight className="w-4 h-4" /></button>
                         
-                        <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
+                        <span className="w-[1px] h-4 bg-neutral-400/40 mx-1" />
                         
                         {/* Lists & Quotes */}
-                        <button type="button" onClick={() => insertTag("<ul>\n  <li>", "</li>\n</ul>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Unordered List"><List className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag("<ol>\n  <li>", "</li>\n</ol>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Ordered List"><ListOrdered className="w-4 h-4" /></button>
-                        <button type="button" onClick={() => insertTag("<blockquote>", "</blockquote>")} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Quote"><Quote className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag("<ul>\n  <li>", "</li>\n</ul>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Unordered List"><List className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag("<ol>\n  <li>", "</li>\n</ol>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Ordered List"><ListOrdered className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => insertTag("<blockquote>", "</blockquote>")} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Quote"><Quote className="w-4 h-4" /></button>
                         
-                        <span className="w-[1px] h-4 bg-neutral-300 mx-1" />
+                        <span className="w-[1px] h-4 bg-neutral-400/40 mx-1" />
                         
                         {/* Media */}
-                        <button type="button" onClick={insertLink} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Link"><Link2 className="w-4 h-4" /></button>
-                        <button type="button" onClick={insertImage} className="p-1.5 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 rounded-lg transition-colors duration-150" title="Image"><Image className="w-4 h-4" /></button>
+                        <button type="button" onClick={insertLink} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Link"><Link2 className="w-4 h-4" /></button>
+                        <button type="button" onClick={insertImage} className="p-1.5 hover:bg-cream-deep/60 text-neutral-600 hover:text-primary rounded-lg transition-colors duration-150" title="Image"><Image className="w-4 h-4" /></button>
                       </div>
 
                       {/* Editor Textarea */}
@@ -825,12 +824,12 @@ export function Admin() {
                         value={blogContent}
                         onChange={(e) => setBlogContent(e.target.value)}
                         placeholder="Start writing your blog content here... Use the HTML tags or the toolbar above to format text, insert images, add links, and more."
-                        className="w-full px-4 py-4 focus:outline-none text-sm font-medium resize-y leading-relaxed font-mono"
+                        className="w-full px-4 py-4 focus:outline-none text-sm font-semibold resize-y leading-relaxed font-mono bg-white text-charcoal"
                       />
                     </div>
                   ) : (
                     /* Content HTML Preview */
-                    <div className="border border-neutral-200 rounded-2xl p-6 min-h-[300px] rich-text-content max-w-none bg-neutral-50/30 overflow-y-auto leading-relaxed text-neutral-700">
+                    <div className="border-2 border-white rounded-xl p-6 min-h-[300px] rich-text-content max-w-none bg-cream overflow-y-auto leading-relaxed text-charcoal">
                       {blogContent ? (
                         <div dangerouslySetInnerHTML={{ __html: resolveImagesForDisplay(blogContent) }} />
                       ) : (
@@ -841,10 +840,10 @@ export function Admin() {
                 </div>
 
                 {/* Form Buttons */}
-                <div className="flex gap-4 pt-4 border-t border-neutral-100">
+                <div className="flex gap-4 pt-4 border-t border-white/40">
                   <button 
                     type="submit"
-                    className="px-6 py-3.5 bg-orange-600 text-white rounded-xl font-semibold hover:bg-orange-700 transition-colors shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
+                    className="px-6 py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-secondary transition-colors shadow-sm flex items-center gap-2 cursor-pointer active:scale-95"
                   >
                     <Sparkles className="w-4 h-4" />
                     {editingBlogId ? "Update Blog" : "Publish Blog"}
@@ -861,7 +860,7 @@ export function Admin() {
                         setContentImages({});
                         setBlogSubTab("manage");
                       }}
-                      className="px-6 py-3.5 border border-neutral-200 text-neutral-600 rounded-xl font-semibold hover:bg-neutral-100 transition-colors cursor-pointer"
+                      className="px-6 py-3.5 border-2 border-white text-neutral-655 rounded-xl font-bold bg-white hover:bg-neutral-50 transition-colors cursor-pointer active:scale-95"
                     >
                       Cancel
                     </button>
@@ -873,14 +872,14 @@ export function Admin() {
 
           {/* Subtab: MANAGE BLOGS */}
           {blogSubTab === "manage" && (
-            <div className="bg-white rounded-3xl border border-neutral-100 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border-2 border-white shadow-md overflow-hidden animate-fade-in">
               {blogs.length === 0 ? (
                 <div className="py-16 text-center">
                   <FileText className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
                   <p className="text-neutral-500 font-semibold">No blog posts found.</p>
                   <button 
                     onClick={() => setBlogSubTab("create")} 
-                    className="mt-4 px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors cursor-pointer"
+                    className="mt-4 px-6 py-2.5 bg-primary text-white text-sm font-bold rounded-xl hover:bg-secondary transition-colors cursor-pointer active:scale-95 shadow-sm"
                   >
                     Create a Post
                   </button>
@@ -889,7 +888,7 @@ export function Admin() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
                     <thead>
-                      <tr className="bg-neutral-50 border-b border-neutral-100 text-xs font-bold text-neutral-400 uppercase tracking-widest">
+                      <tr className="bg-cream-dark border-b border-white/30 text-xs font-bold text-charcoal uppercase tracking-widest">
                         <th className="py-4 px-6">Blog Post</th>
                         <th className="py-4 px-6">Author</th>
                         <th className="py-4 px-6">Category</th>
@@ -899,11 +898,11 @@ export function Admin() {
                     </thead>
                     <tbody className="divide-y divide-neutral-100 text-sm font-medium">
                       {blogs.map((blog) => (
-                        <tr key={blog.id} className="hover:bg-neutral-50/50 transition-colors">
+                        <tr key={blog.id} className="hover:bg-cream/40 transition-colors">
                           <td className="py-4 px-6">
                             <div className="flex items-center gap-3">
                               {/* Small cover thumb */}
-                              <div className="w-12 h-9 rounded-md overflow-hidden flex-shrink-0 border border-neutral-100">
+                              <div className="w-12 h-9 rounded-md overflow-hidden flex-shrink-0 border-2 border-white">
                                 {blog.coverPhoto.startsWith("linear-gradient") ? (
                                   <div className="w-full h-full" style={{ background: blog.coverPhoto }} />
                                 ) : (
@@ -918,16 +917,16 @@ export function Admin() {
                           </td>
                           <td className="py-4 px-6">
                             <div>
-                              <p className="text-neutral-800">{blog.authorName}</p>
-                              <p className="text-xs text-neutral-400 font-normal">{blog.authorDesignation}</p>
+                              <p className="text-neutral-800 font-semibold">{blog.authorName}</p>
+                              <p className="text-xs text-neutral-450 font-semibold">{blog.authorDesignation}</p>
                             </div>
                           </td>
                           <td className="py-4 px-6">
-                            <span className="inline-block px-2.5 py-0.5 rounded-full text-xs bg-orange-50 text-orange-600 font-semibold">
+                            <span className="inline-block px-2.5 py-0.5 rounded-full text-xs bg-secondary-light text-secondary font-bold">
                               {blog.category}
                             </span>
                           </td>
-                          <td className="py-4 px-6 text-neutral-500 text-xs">
+                          <td className="py-4 px-6 text-neutral-500 text-xs font-semibold">
                             {new Date(blog.createdAt).toLocaleDateString("en-US", {
                               year: "numeric", month: "short", day: "numeric"
                             })}
@@ -936,14 +935,14 @@ export function Admin() {
                             <div className="flex justify-end gap-2">
                               <button 
                                 onClick={() => handleEditBlogSelect(blog)}
-                                className="p-2 hover:bg-neutral-100 text-neutral-600 hover:text-orange-600 rounded-lg transition-colors cursor-pointer"
+                                className="p-2 hover:bg-cream-dark text-neutral-500 hover:text-primary rounded-lg transition-colors cursor-pointer"
                                 title="Edit"
                               >
                                 <Edit3 className="w-4 h-4" />
                               </button>
                               <button 
                                 onClick={() => handleDeleteBlog(blog.id, blog.title)}
-                                className="p-2 hover:bg-red-50 text-neutral-400 hover:text-red-600 rounded-lg transition-colors cursor-pointer"
+                                className="p-2 hover:bg-burgundy-light text-neutral-400 hover:text-burgundy rounded-lg transition-colors cursor-pointer"
                                 title="Delete"
                               >
                                 <Trash2 className="w-4 h-4" />
@@ -965,30 +964,30 @@ export function Admin() {
       {activeTab === "testimonials" && (
         <div className="space-y-6">
           {/* Subtabs layout */}
-          <div className="flex gap-4 border-b border-neutral-200 pb-4">
+          <div className="flex gap-4 border-b border-white/40 pb-4">
             <button 
               onClick={() => { setTestSubTab("create"); setEditingTestId(null); }}
-              className={`pb-2 text-sm font-bold border-b-2 transition-all ${
+              className={`pb-2 text-sm font-bold border-b-2 transition-all cursor-pointer ${
                 testSubTab === "create" && !editingTestId
-                  ? "border-orange-500 text-neutral-900" 
-                  : "border-transparent text-neutral-500 hover:text-neutral-800"
+                  ? "border-primary text-primary" 
+                  : "border-transparent text-neutral-500 hover:text-primary"
               }`}
             >
               <Plus className="w-4 h-4 inline mr-1" />
               Add Testimonial
             </button>
             {editingTestId && (
-              <span className="pb-2 text-sm font-bold border-b-2 border-orange-500 text-neutral-900">
+              <span className="pb-2 text-sm font-bold border-b-2 border-primary text-primary">
                 <Edit3 className="w-4 h-4 inline mr-1" />
                 Edit Testimonial
               </span>
             )}
             <button 
               onClick={() => setTestSubTab("manage")}
-              className={`pb-2 text-sm font-bold border-b-2 transition-all ${
+              className={`pb-2 text-sm font-bold border-b-2 transition-all cursor-pointer ${
                 testSubTab === "manage" 
-                  ? "border-orange-500 text-neutral-900" 
-                  : "border-transparent text-neutral-500 hover:text-neutral-800"
+                  ? "border-primary text-primary" 
+                  : "border-transparent text-neutral-500 hover:text-primary"
               }`}
             >
               Manage Testimonials ({testimonials.length})
@@ -997,8 +996,8 @@ export function Admin() {
 
           {/* Subtab: ADD/EDIT TESTIMONIAL FORM */}
           {testSubTab === "create" && (
-            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-100 shadow-sm max-w-3xl">
-              <h2 className="text-2xl font-bold mb-8 text-neutral-900">
+            <div className="bg-white rounded-2xl p-6 sm:p-10 border-2 border-white shadow-md max-w-3xl">
+              <h2 className="text-2xl font-serif font-extrabold mb-8 text-charcoal">
                 {editingTestId ? "Edit Testimonial" : "New Testimonial"}
               </h2>
 
@@ -1011,7 +1010,7 @@ export function Admin() {
                       placeholder="e.g. Dr. Amit Chandra"
                       value={testName}
                       onChange={(e) => setTestName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm font-semibold bg-cream/10"
                     />
                   </div>
 
@@ -1022,7 +1021,7 @@ export function Admin() {
                       placeholder="e.g. Senior Policy Analyst, Center for Civil Society"
                       value={testRole}
                       onChange={(e) => setTestRole(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm font-semibold bg-cream/10"
                     />
                   </div>
 
@@ -1033,15 +1032,15 @@ export function Admin() {
                       rows={4}
                       value={testQuote}
                       onChange={(e) => setTestQuote(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all text-sm font-medium resize-none leading-relaxed"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm font-semibold resize-none leading-relaxed bg-cream/10"
                     />
                   </div>
                 </div>
 
-                <div className="flex gap-4 pt-4 border-t border-neutral-100">
+                <div className="flex gap-4 pt-4 border-t border-white/40">
                   <button 
                     type="submit"
-                    className="px-6 py-3.5 bg-slate-900 text-white rounded-xl font-semibold hover:bg-orange-600 transition-colors shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
+                    className="px-6 py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-secondary transition-colors shadow-sm flex items-center gap-2 cursor-pointer active:scale-95"
                   >
                     <Sparkles className="w-4 h-4" />
                     {editingTestId ? "Update Testimonial" : "Save Testimonial"}
@@ -1056,7 +1055,7 @@ export function Admin() {
                         setTestQuote("");
                         setTestSubTab("manage");
                       }}
-                      className="px-6 py-3.5 border border-neutral-200 text-neutral-600 rounded-xl font-semibold hover:bg-neutral-100 transition-colors cursor-pointer"
+                      className="px-6 py-3.5 border-2 border-white text-neutral-655 rounded-xl font-bold bg-white hover:bg-neutral-50 transition-colors cursor-pointer active:scale-95"
                     >
                       Cancel
                     </button>
@@ -1068,14 +1067,14 @@ export function Admin() {
 
           {/* Subtab: MANAGE TESTIMONIALS */}
           {testSubTab === "manage" && (
-            <div className="bg-white rounded-3xl border border-neutral-100 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border-2 border-white shadow-md overflow-hidden animate-fade-in font-sans">
               {testimonials.length === 0 ? (
                 <div className="py-16 text-center">
                   <MessageSquare className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
                   <p className="text-neutral-500 font-semibold">No testimonials found.</p>
                   <button 
                     onClick={() => setTestSubTab("create")} 
-                    className="mt-4 px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors cursor-pointer"
+                    className="mt-4 px-6 py-2.5 bg-primary text-white text-sm font-bold rounded-xl hover:bg-secondary transition-colors cursor-pointer active:scale-95 shadow-sm"
                   >
                     Add a Testimonial
                   </button>
@@ -1084,7 +1083,7 @@ export function Admin() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
                     <thead>
-                      <tr className="bg-neutral-50 border-b border-neutral-100 text-xs font-bold text-neutral-400 uppercase tracking-widest">
+                      <tr className="bg-cream-dark border-b border-white/30 text-xs font-bold text-charcoal uppercase tracking-widest">
                         <th className="py-4 px-6">Person</th>
                         <th className="py-4 px-6">Quote</th>
                         <th className="py-4 px-6 text-right">Actions</th>
@@ -1092,28 +1091,28 @@ export function Admin() {
                     </thead>
                     <tbody className="divide-y divide-neutral-100 text-sm font-medium">
                       {testimonials.map((test) => (
-                        <tr key={test.id} className="hover:bg-neutral-50/50 transition-colors">
+                        <tr key={test.id} className="hover:bg-cream/40 transition-colors">
                           <td className="py-4 px-6 whitespace-nowrap">
                             <div>
                               <p className="font-bold text-neutral-900">{test.name}</p>
-                              <p className="text-xs text-neutral-400 font-semibold">{test.role}</p>
+                              <p className="text-xs text-neutral-450 font-semibold">{test.role}</p>
                             </div>
                           </td>
                           <td className="py-4 px-6">
-                            <p className="text-neutral-600 line-clamp-2 italic font-normal">"{test.quote}"</p>
+                            <p className="text-neutral-600 line-clamp-2 italic font-semibold text-sm">"{test.quote}"</p>
                           </td>
                           <td className="py-4 px-6 text-right">
                             <div className="flex justify-end gap-2">
                               <button 
                                 onClick={() => handleEditTestSelect(test)}
-                                className="p-2 hover:bg-neutral-100 text-neutral-600 hover:text-orange-600 rounded-lg transition-colors cursor-pointer"
+                                className="p-2 hover:bg-cream-dark text-neutral-500 hover:text-primary rounded-lg transition-colors cursor-pointer"
                                 title="Edit"
                               >
                                 <Edit3 className="w-4 h-4" />
                               </button>
                               <button 
                                 onClick={() => handleDeleteTestimonial(test.id, test.name)}
-                                className="p-2 hover:bg-red-50 text-neutral-400 hover:text-red-600 rounded-lg transition-colors cursor-pointer"
+                                className="p-2 hover:bg-burgundy-light text-neutral-400 hover:text-burgundy rounded-lg transition-colors cursor-pointer"
                                 title="Delete"
                               >
                                 <Trash2 className="w-4 h-4" />
