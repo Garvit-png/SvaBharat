@@ -23,10 +23,10 @@ export default {
           light: '#EBF2ED',
         },
         cream: {
-          DEFAULT: '#F4EFE3', // Warm Ivory / Paper
-          dark: '#E4D7BE',    // Warm Beige
-          deep: '#D2C1A3',
-          light: '#FFFFFF',   // Pure White
+          DEFAULT: '#ffedd5', // Light Orange (replaces Warm Ivory)
+          dark: '#fed7aa',    // Medium Orange (replaces Warm Beige)
+          deep: '#fdba74',    // Darker Orange
+          light: '#fff7ed',   // Very Light Orange
         },
         charcoal: {
           DEFAULT: '#1E1E1E', // Rich Charcoal

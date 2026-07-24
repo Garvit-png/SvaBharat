@@ -75,7 +75,7 @@ export function Home() {
       <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
         <CutTitle position="top-left">From First Principles to New Possibilities</CutTitle>
 
-        <div className="mt-16 md:mt-20 max-w-3xl">
+        <div className="mt-16 md:mt-20 max-w-3xl lg:max-w-xl xl:max-w-2xl relative z-20">
           <p className="text-2xl md:text-3xl font-serif font-extrabold leading-relaxed text-charcoal mb-10">
             We begin not with solutions, but with the right questions.
           </p>
@@ -92,10 +92,19 @@ export function Home() {
             <span className="group-hover:translate-x-1.5 transition-transform duration-200">→</span>
           </Link>
         </div>
+
+        {/* Absolute Decorative Image */}
+        <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[60%] pointer-events-none select-none">
+          <img 
+            src="/middle2.png" 
+            alt="First Principles Illustration" 
+            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-6 md:translate-y-10"
+          />
+        </div>
       </section>
 
       {/* ── FEATURED CONVERSATION ── */}
-      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#857d6a] text-white rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#fcb36d] text-white rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
         <CutTitle position="top-left">
           Featured Conversation
         </CutTitle>
@@ -134,7 +143,7 @@ export function Home() {
       <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
         <CutTitle position="top-left">Join the Movement</CutTitle>
 
-        <div className="mt-16 md:mt-20 max-w-4xl">
+        <div className="mt-16 md:mt-20 max-w-2xl lg:max-w-xl xl:max-w-2xl relative z-20">
           <p className="text-2xl md:text-4xl font-serif font-extrabold leading-relaxed text-charcoal mb-12">
             Bharat cannot be reimagined by a few. There is space here for every person carrying a question that refuses to leave them.
           </p>
@@ -155,6 +164,15 @@ export function Home() {
             Contribute an Idea
             <span className="ml-1">→</span>
           </Link>
+        </div>
+
+        {/* Absolute Decorative Image */}
+        <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[85%] sm:w-[75%] md:w-[60%] lg:w-[55%] xl:w-[55%] pointer-events-none select-none">
+          <img 
+            src="/middle3.png" 
+            alt="Join the Movement Illustration" 
+            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-4 md:translate-y-8 lg:translate-y-12"
+          />
         </div>
       </section>
 

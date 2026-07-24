@@ -32,7 +32,7 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
   }, [showAnimation]);
 
   return (
-    <section className="relative w-full h-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] flex flex-col overflow-hidden text-charcoal bg-cream">
+    <section className="relative w-full h-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] flex flex-col overflow-hidden text-charcoal bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat">
       
       {/* Subtle background paths */}
       <BackgroundPaths />
@@ -59,8 +59,8 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
         </svg>
       </div>
 
-      {/* Main Content — centered vertically & horizontally */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-6 md:px-16 lg:px-24">
+      {/* Main Content — centered vertically & horizontally but shifted right for the new bg */}
+      <div className="relative z-10 flex-1 flex items-center justify-center px-6 md:pl-40 lg:pl-72 md:pr-16 lg:pr-24">
         <h1
           ref={titleRef}
           className="text-center max-w-5xl text-[#1E1E1E] select-none flex flex-col gap-3 font-sans font-light italic tracking-[-0.015em] text-[clamp(2.5rem,7.2vw,5.5rem)] leading-[1.2]"
