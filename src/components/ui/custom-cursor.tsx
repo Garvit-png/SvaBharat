@@ -3,22 +3,15 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredElement, setHoveredElement] = useState<HTMLElement | null>(null);
-  const [snapCoords, setSnapCoords] = useState<{ x: number; y: number } | null>(null);
-  const [targetDiameter, setTargetDiameter] = useState(44);
 
   // Outer cursor springs for magnetic snap position tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
-  // Spring configuration for extremely smooth magnetic locking
+  // Spring configuration for smooth tracking
   const springConfig = { damping: 28, stiffness: 220, mass: 0.45 };
   const springX = useSpring(mouseX, springConfig);
   const springY = useSpring(mouseY, springConfig);
-
-  // Inner tracking dot (follows mouse pointer instantly)
-  const innerX = useMotionValue(0);
-  const innerY = useMotionValue(0);
 
   useEffect(() => {
     // Disable custom cursor on mobile touch screens
@@ -32,85 +25,18 @@ export function CustomCursor() {
     setIsVisible(true);
 
     const moveCursor = (e: MouseEvent) => {
-      innerX.set(e.clientX);
-      innerY.set(e.clientY);
-
-      // Lock position to the snapped coordinates, or track mouse
-      if (snapCoords) {
-        mouseX.set(snapCoords.x);
-        mouseY.set(snapCoords.y);
-      } else {
-        mouseX.set(e.clientX);
-        mouseY.set(e.clientY);
-      }
-    };
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target) return;
-
-      // Correctly resolve the HTMLElement of the interactive element (no boolean values)
-      const element = (
-        target.closest('a') || 
-        target.closest('button') || 
-        target.closest('input') || 
-        target.closest('.cursor-pointer') ||
-        target.closest('.cursor-target-expand') ||
-        (target.classList.contains('cursor-pointer') ? target : null) ||
-        (target.classList.contains('cursor-target-expand') ? target : null)
-      ) as HTMLElement | null;
-      
-      if (element) {
-        // Exclude media/video containers from cursor expansions
-        const isMedia = 
-          element.querySelector('video') || 
-          element.querySelector('iframe') || 
-          element.tagName === 'VIDEO' || 
-          element.tagName === 'IFRAME' ||
-          element.closest('.aspect-video');
-          
-        if (isMedia) {
-          setHoveredElement(null);
-          setSnapCoords(null);
-          return;
-        }
-
-        setHoveredElement(element);
-        const rect = element.getBoundingClientRect();
-        
-        // Calculate the diagonal of the bounding box to ensure the circle encloses the rectangle
-        const diagonal = Math.sqrt(rect.width * rect.width + rect.height * rect.height);
-        
-        // Add 20px padding (10px on each side of the diagonal) so the corners do not touch the circle
-        setTargetDiameter(diagonal + 20);
-        
-        // Lock snaps exactly to the center coordinates of the element
-        const targetX = rect.left + rect.width / 2;
-        const targetY = rect.top + rect.height / 2;
-        setSnapCoords({ x: targetX, y: targetY });
-        
-        // Set coordinates
-        mouseX.set(targetX);
-        mouseY.set(targetY);
-      } else {
-        setHoveredElement(null);
-        setSnapCoords(null);
-      }
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
     window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [hoveredElement, snapCoords, mouseX, mouseY, innerX, innerY]);
+  }, [mouseX, mouseY]);
 
   if (!isVisible) return null;
-
-  const isHovered = !!hoveredElement;
-  const isHeroText = hoveredElement?.classList.contains('cursor-target-expand');
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
@@ -125,13 +51,13 @@ export function CustomCursor() {
           transformStyle: "preserve-3d",
         }}
         animate={{
-          width: isHovered ? targetDiameter : 44,
-          height: isHovered ? targetDiameter : 44,
-          opacity: isHovered ? (isHeroText ? 0.045 : 0.12) : 0.9, // Dim specifically to 4.5% for hero text, 12% for buttons
+          width: 44,
+          height: 44,
+          opacity: 0.9,
         }}
         transition={{
           type: "spring",
-          stiffness: isHovered ? 260 : 340, // 250-350ms feel for expand/shrink transitions
+          stiffness: 340,
           damping: 24,
           mass: 0.6,
         }}
@@ -143,8 +69,8 @@ export function CustomCursor() {
             transformStyle: "preserve-3d",
           }}
           animate={{
-            rotateX: isHeroText ? 0 : 20,
-            rotateY: isHeroText ? 0 : 15,
+            rotateX: 20,
+            rotateY: 15,
             rotateZ: 360,
           }}
           transition={{
