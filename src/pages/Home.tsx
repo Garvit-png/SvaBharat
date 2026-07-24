@@ -26,13 +26,23 @@ export function Home() {
     <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
 
       {/* ── HERO ── */}
-      <section className="relative w-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+      <section className="relative w-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        {/* Black border drawn inside so logo cutout overlaps it naturally */}
+        <div className="absolute inset-0 rounded-3xl md:rounded-[3rem] border-2 border-black z-20 pointer-events-none" />
+        {/* Banner background image */}
+        <img
+          src="/svabanner.jpeg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Very light overlay — just enough for text legibility */}
+        <div className="absolute inset-0 bg-[#Fdf6e3]/25" />
         <Navbar />
         <Hero showAnimation={true} />
       </section>
 
-      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
-        <CutTitle position="top-left">What Does "SvaBharat" Mean?</CutTitle>
+      {/* SvaBharat Meaning — LIGHT GREEN */}
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#eaf5ea] rounded-3xl md:rounded-[3rem] overflow-hidden">
 
         <div className="mt-16 md:mt-20 max-w-4xl mx-auto">
           <p className="text-lg md:text-xl text-neutral-500 font-light mb-16 leading-relaxed text-center">
@@ -71,8 +81,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── HOW WE THINK ── */}
-      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+      {/* ── HOW WE THINK — ORANGE ── */}
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#fff4ed] rounded-3xl md:rounded-[3rem] overflow-hidden">
         <CutTitle position="top-left">From First Principles to New Possibilities</CutTitle>
 
         <div className="mt-16 md:mt-20 max-w-3xl">
@@ -130,8 +140,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── JOIN THE MOVEMENT ── */}
-      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+      {/* ── JOIN THE MOVEMENT — GREEN ── */}
+      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#eaf5ea] rounded-3xl md:rounded-[3rem] overflow-hidden">
         <CutTitle position="top-left">Join the Movement</CutTitle>
 
         <div className="mt-16 md:mt-20 max-w-4xl">
@@ -154,9 +164,9 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS (VOICES OF THE MOVEMENT) ── */}
+      {/* ── TESTIMONIALS — ORANGE ── */}
       {testimonials.length > 0 && (
-        <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+        <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#fff4ed] rounded-3xl md:rounded-[3rem] overflow-hidden">
           <CutTitle position="top-left">Voices of the Movement</CutTitle>
 
           <div className="mt-16 md:mt-20 max-w-6xl mx-auto">
@@ -189,8 +199,8 @@ export function Home() {
         </section>
       )}
 
-      {/* ── NEWSLETTER ── */}
-      <section className="relative w-full py-16 md:py-20 px-6 md:px-16 lg:px-24 bg-[#Fdf6e3] rounded-3xl md:rounded-[3rem] overflow-hidden">
+      {/* ── NEWSLETTER — GREEN ── */}
+      <section className="relative w-full py-16 md:py-20 px-6 md:px-16 lg:px-24 bg-[#eaf5ea] rounded-3xl md:rounded-[3rem] overflow-hidden">
         <div className="max-w-xl">
           <h2 className="text-2xl md:text-3xl font-light mb-3">Stay Close to Ideas That Matter</h2>
           <p className="text-neutral-500 font-light mb-8">A thoughtful selection of ideas, questions, and reflections from the SvaBharat movement.</p>

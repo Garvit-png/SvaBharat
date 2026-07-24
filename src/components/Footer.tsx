@@ -4,7 +4,7 @@ import { Settings } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#f5ebd7] text-neutral-900 py-16 px-6 md:px-12 rounded-3xl md:rounded-[3rem]">
+    <footer className="bg-[#fff4ed] text-neutral-900 py-16 px-6 md:px-12 rounded-3xl md:rounded-[3rem]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
         
         {/* Brand & Mission */}

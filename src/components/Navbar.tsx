@@ -18,17 +18,19 @@ export function Navbar() {
 
       {/* Logo Cutout */}
       <div className="flex items-center pointer-events-auto">
-        <div className="relative p-3 md:p-5 bg-white flex items-center justify-center z-50 rounded-br-2xl md:rounded-br-3xl">
+        <div className="relative p-3 md:p-5 bg-white flex items-center justify-center z-50 rounded-br-2xl md:rounded-br-3xl"
+          style={{ boxShadow: "2px 2px 0px 0px black" }}
+        >
           <Link to="/" className="transform transition-transform hover:scale-105">
             <img src="/logo.png" alt="SvaBharat" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
           </Link>
           {/* Right concave */}
-          <svg className="absolute top-0 -right-4 md:-right-5 w-4 h-4 md:w-5 md:h-5 fill-white pointer-events-none" viewBox="0 0 32 32">
-            <path d="M0,0 H32 A32,32 0 0,0 0,32 Z" />
+          <svg className="absolute top-0 -right-6 w-6 h-6 pointer-events-none" viewBox="0 0 24 24">
+            <path d="M0,0 H24 A24,24 0 0,0 0,24 Z" fill="white" />
           </svg>
           {/* Bottom concave */}
-          <svg className="absolute -bottom-4 md:-bottom-5 left-0 w-4 h-4 md:w-5 md:h-5 fill-white pointer-events-none" viewBox="0 0 32 32">
-            <path d="M0,0 H32 A32,32 0 0,0 0,32 Z" />
+          <svg className="absolute -bottom-6 left-0 w-6 h-6 pointer-events-none" viewBox="0 0 24 24">
+            <path d="M0,0 H24 A24,24 0 0,0 0,24 Z" fill="white" />
           </svg>
         </div>
 
@@ -39,7 +41,7 @@ export function Navbar() {
       </div>
 
       {/* Desktop Nav */}
-      <nav className="pointer-events-auto hidden md:flex items-center gap-10 px-10 pt-6 text-sm font-normal text-neutral-700">
+      <nav className="pointer-events-auto hidden md:flex items-center gap-10 px-10 pt-6 text-sm font-semibold text-neutral-900">
         {links.map((l) => (
           <Link
             key={l.to}

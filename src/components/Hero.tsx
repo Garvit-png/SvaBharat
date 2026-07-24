@@ -76,7 +76,7 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
         ref={bottomRef}
         className="relative z-10 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 px-6 md:px-16 lg:px-24 pb-8 md:pb-12 text-center sm:text-left"
       >
-        <p className="max-w-xs text-sm md:text-base text-neutral-600 font-normal leading-relaxed" style={{ opacity: 0 }}>
+        <p className="max-w-xs text-sm md:text-base text-neutral-900 font-medium leading-relaxed" style={{ opacity: 0 }}>
           A movement to question assumptions and imagine new possibilities for Bharat.
         </p>
 
