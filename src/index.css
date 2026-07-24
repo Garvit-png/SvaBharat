@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-white text-neutral-900 m-0 p-0 overflow-x-hidden;
+    @apply bg-white text-charcoal m-0 p-0 overflow-x-hidden;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
@@ -13,35 +15,35 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer components {
   .rich-text-content h1 {
-    @apply text-3xl font-extrabold text-neutral-900 mt-8 mb-4;
+    @apply text-3xl font-serif font-extrabold text-charcoal mt-8 mb-4;
   }
   .rich-text-content h2 {
-    @apply text-2xl font-bold text-neutral-900 mt-8 mb-4;
+    @apply text-2xl font-serif font-bold text-charcoal mt-8 mb-4;
   }
   .rich-text-content h3 {
-    @apply text-xl font-bold text-neutral-900 mt-6 mb-3;
+    @apply text-xl font-serif font-bold text-charcoal mt-6 mb-3;
   }
   .rich-text-content p {
-    @apply leading-relaxed mb-6 text-neutral-700;
+    @apply leading-relaxed mb-6 text-charcoal/90 font-medium;
   }
   .rich-text-content ul {
-    @apply list-disc pl-6 space-y-2 mb-6;
+    @apply list-disc pl-6 space-y-2 mb-6 font-medium;
   }
   .rich-text-content ol {
-    @apply list-decimal pl-6 space-y-2 mb-6;
+    @apply list-decimal pl-6 space-y-2 mb-6 font-medium;
   }
   .rich-text-content blockquote {
-    @apply border-l-4 border-orange-500 pl-4 italic my-6 text-neutral-600 bg-neutral-50 py-2 pr-4 rounded-r-lg;
+    @apply border-l-4 border-secondary pl-4 italic my-6 text-charcoal/80 bg-cream-dark py-3 pr-4 rounded-r-lg font-serif;
   }
   .rich-text-content a {
-    @apply text-orange-600 font-semibold hover:underline;
+    @apply text-primary font-semibold hover:text-secondary hover:underline transition-colors;
   }
   .rich-text-content img {
     @apply rounded-2xl my-6 shadow-md object-cover inline-block;
@@ -51,6 +53,13 @@
   }
   .rich-text-content img:not([height]) {
     @apply max-h-[450px];
+  }
+}
+
+/* Hide default cursor on desktop pointer devices only (keeps mobile usable) */
+@media (pointer: fine) {
+  body, a, button, [role="button"], input, select, textarea, .cursor-pointer {
+    cursor: none !important;
   }
 }
 
