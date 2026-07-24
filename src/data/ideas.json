@@ -1,0 +1,302 @@
+[
+  {
+    "id": "reimagining-the-university",
+    "title": "Reimagining the University",
+    "tagline": "Moving beyond industrial-era credentialing toward holistic centers of inquiry, wisdom, and community synthesis.",
+    "category": "Education",
+    "status": "Active Exploration",
+    "location": "Pan-Bharat",
+    "lastUpdated": "2026-07-24",
+    "brief": {
+      "summary": "Modern universities were designed during the industrial revolution to standardize talent for corporate hierarchies. Today, this model creates hyper-specialized silos and mental strain while failing to foster root-level problem solving.",
+      "problemStatement": "Higher education has turned into an expensive credentialing machine. Learning is disconnected from community needs, ecological realities, and traditional knowledge paradigms.",
+      "proposedFramework": "We propose a decentralized, ecosystemic university model where learning happens through active inquiry, apprenticeship with master practitioners, community problem-solving, and cross-disciplinary synthesis.",
+      "corePrinciples": [
+        "Interdisciplinary Inquiry: Blending computational science with traditional crafts, agriculture, and philosophy.",
+        "Community Anchoring: Every campus operates as a living laboratory for local ecological and social challenges.",
+        "Lifelong Synthesis: De-coupling education from rigid 4-year degree blocks into continuous learning cycles."
+      ]
+    },
+    "notionLink": {
+      "url": "https://notion.so/svabharat/Reimagining-the-University-9a8b7c6d",
+      "lastSynced": "2 hours ago",
+      "workspaceName": "SvaBharat Core Ideas Workspace",
+      "documentOutline": [
+        "1. Structural Failure Modes of Current Universities",
+        "2. The 'Gurukul' Paradigm Shift in Modern Context",
+        "3. Financial & Operational Blueprint",
+        "4. Pilot Program Architecture"
+      ]
+    },
+    "relatedConversations": [
+      {
+        "id": "conv-1",
+        "title": "Dialogue on the Future of Higher Education",
+        "speakers": "Dr. Ananya Sharma & K. V. Ramanathan",
+        "type": "Podcast & Panel",
+        "date": "July 12, 2026",
+        "duration": "45 mins",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "keyQuotes": [
+          "A degree measures endurance in an arbitrary system, not true capability or ethical commitment to society.",
+          "We need spaces where learning is an act of service to the surrounding watershed and community."
+        ]
+      },
+      {
+        "id": "conv-2",
+        "title": "Community Roundtable: Student & Educator Perspectives",
+        "speakers": "24 Participants across 6 Universities",
+        "type": "Townhall Discourse",
+        "date": "June 28, 2026",
+        "summary": "Key themes emerged around peer-to-peer mentoring, modular micro-credits, and integrating hands-on vocational wisdom with abstract theoretical research."
+      }
+    ],
+    "resources": [
+      {
+        "id": "res-1",
+        "title": "Reimagining the University - Whitepaper Draft v2.1",
+        "type": "PDF",
+        "size": "2.4 MB",
+        "url": "#",
+        "description": "Comprehensive 32-page policy and structural recommendation document."
+      },
+      {
+        "id": "res-2",
+        "title": "Comparative Analysis of Indian Higher Ed Frameworks",
+        "type": "Doc",
+        "size": "1.1 MB",
+        "url": "#",
+        "description": "Statistical breakdown of enrollment, outcomes, and research impact metrics."
+      },
+      {
+        "id": "res-3",
+        "title": "Pilot Campus Architecture & Space Design Slides",
+        "type": "Slides",
+        "size": "8.7 MB",
+        "url": "#",
+        "description": "Visual blueprints for sustainable, community-integrated physical learning spaces."
+      }
+    ],
+    "contributors": [
+      {
+        "id": "contrib-1",
+        "name": "Dr. Ananya Sharma",
+        "role": "Lead Architect",
+        "affiliation": "Center for Educational Innovation",
+        "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+        "focus": "Pedagogy & Curriculum Reform",
+        "link": "#"
+      },
+      {
+        "id": "contrib-2",
+        "name": "Rajesh Varma",
+        "role": "Policy Researcher",
+        "affiliation": "SvaBharat Policy Cell",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+        "focus": "Regulatory & Legal Frameworks",
+        "link": "#"
+      },
+      {
+        "id": "contrib-3",
+        "name": "Priya Nair",
+        "role": "Community Strategist",
+        "affiliation": "Bharat Youth Forum",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+        "focus": "Student Engagement & Outreach",
+        "link": "#"
+      }
+    ],
+    "acceptanceCriteria": [
+      {
+        "id": "ac-1",
+        "title": "Publish Comprehensive Whitepaper",
+        "description": "Complete research and peer review of the foundational whitepaper.",
+        "status": "completed",
+        "targetDate": "June 2026"
+      },
+      {
+        "id": "ac-2",
+        "title": "Convene Advisory Board of 10 Educators",
+        "description": "Assemble diverse leaders across academia, industry, and traditional crafts.",
+        "status": "completed",
+        "targetDate": "July 2026"
+      },
+      {
+        "id": "ac-3",
+        "title": "Draft Pilot Curriculum for 3 Tracks",
+        "description": "Define experiential learning modules for Sustainable AgTech, Civic Tech, and Heritage Arts.",
+        "status": "in_progress",
+        "targetDate": "September 2026"
+      },
+      {
+        "id": "ac-4",
+        "title": "Secure Pilot Institutional Partner",
+        "description": "Partner with a forward-thinking college to run a 1-semester trial cohort.",
+        "status": "in_progress",
+        "targetDate": "November 2026"
+      },
+      {
+        "id": "ac-5",
+        "title": "Open Source Learning Repository",
+        "description": "Release all course blueprints and open-access reading lists to the public.",
+        "status": "pending",
+        "targetDate": "January 2027"
+      }
+    ]
+  },
+  {
+    "id": "purpose-of-entrance-exams",
+    "title": "The Purpose of Entrance Exams",
+    "tagline": "Rethinking high-stakes testing toward multidimensional assessment of aptitude, creativity, and resilience.",
+    "category": "Assessment",
+    "status": "Drafting Proposition",
+    "location": "National",
+    "lastUpdated": "2026-07-21",
+    "brief": {
+      "summary": "Rigid entrance exams filter millions through rote memorization, creating intense psychological stress while failing to identify true passion or creative problem-solving ability.",
+      "problemStatement": "High-stakes single-day testing rewards coaching culture over deep understanding and genuine curiosity.",
+      "proposedFramework": "A multi-stage portfolio-based evaluation system combining open-ended problem solving, collaborative projects, and adaptive foundational competency checks.",
+      "corePrinciples": [
+        "Continuous Evaluation: Replacing high-stakes 3-hour tests with longitudinal portfolio reviews.",
+        "Holistic Aptitude: Measuring curiosity, persistence, and ethics alongside analytical skill.",
+        "Equitable Access: Eliminating unfair advantages held by commercial coaching hubs."
+      ]
+    },
+    "notionLink": {
+      "url": "https://notion.so/svabharat/Purpose-of-Entrance-Exams-1b2c3d4e",
+      "lastSynced": "Yesterday",
+      "workspaceName": "SvaBharat Core Ideas Workspace",
+      "documentOutline": [
+        "1. Historical Context of Competitive Testing",
+        "2. Psychological & Social Costs",
+        "3. Alternative Evaluation Matrix",
+        "4. Implementation Roadmap for Boards"
+      ]
+    },
+    "relatedConversations": [
+      {
+        "id": "conv-201",
+        "title": "Beyond Rote Memorization: Testing for Tomorrow",
+        "speakers": "Prof. Vikram Sen & Smita Kulkarni",
+        "type": "Keynote Discussion",
+        "date": "July 05, 2026",
+        "duration": "38 mins",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "keyQuotes": [
+          "When an exam only tests pattern recognition of past questions, it incentivizes coaching institutes rather than real learning."
+        ]
+      }
+    ],
+    "resources": [
+      {
+        "id": "res-201",
+        "title": "Entrance Exam Reform Framework - Executive Brief",
+        "type": "PDF",
+        "size": "1.8 MB",
+        "url": "#",
+        "description": "Key recommendations for reform submitted to educational policy committees."
+      }
+    ],
+    "contributors": [
+      {
+        "id": "contrib-201",
+        "name": "Prof. Vikram Sen",
+        "role": "Lead Researcher",
+        "affiliation": "Institute of Assessment Science",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+        "focus": "Psychometrics & Test Design",
+        "link": "#"
+      }
+    ],
+    "acceptanceCriteria": [
+      {
+        "id": "ac-201",
+        "title": "Publish Comparative Study on Global Testing Models",
+        "description": "Analyze portfolio assessment models from 5 leading countries.",
+        "status": "completed",
+        "targetDate": "May 2026"
+      },
+      {
+        "id": "ac-202",
+        "title": "Propose Alternative Scoring Rubric",
+        "description": "Develop objective scoring criteria for student portfolios.",
+        "status": "in_progress",
+        "targetDate": "August 2026"
+      }
+    ]
+  },
+  {
+    "id": "knowledge-systems-of-bharat",
+    "title": "Knowledge Systems of Bharat",
+    "tagline": "Integrating indigenous scientific, mathematical, and ecological wisdom into contemporary education.",
+    "category": "Heritage & Tech",
+    "status": "In Research",
+    "location": "Pan-Bharat",
+    "lastUpdated": "2026-07-18",
+    "brief": {
+      "summary": "India's rich traditions of metallurgy, sustainable architecture, water management, and linguistic logic are often treated as historical relics rather than active tools for modern innovation.",
+      "problemStatement": "Centuries of colonial education decoupled modern technical training from indigenous ecological and philosophical foundations.",
+      "proposedFramework": "Creating accessible digital knowledge archives, translating classical texts into modern computational models, and designing hands-on STEM modules based on traditional Indian engineering.",
+      "corePrinciples": [
+        "Contextual Relevance: Applying traditional water harvesting and architecture to combat climate change.",
+        "Linguistic Logic: Utilizing Sanskrit and Indic grammar models for advance AI NLP research.",
+        "Living Traditions: Engaging rural master artisans as faculty and research partners."
+      ]
+    },
+    "notionLink": {
+      "url": "https://notion.so/svabharat/Knowledge-Systems-of-Bharat-5e6f7g8h",
+      "lastSynced": "3 days ago",
+      "workspaceName": "SvaBharat Core Ideas Workspace",
+      "documentOutline": [
+        "1. Taxonomy of Indic Knowledge Frameworks",
+        "2. Ancient Metallurgy & Materials Science Case Studies",
+        "3. Water Management Systems in Arid Regions",
+        "4. Digital Archival Strategy"
+      ]
+    },
+    "relatedConversations": [
+      {
+        "id": "conv-301",
+        "title": "Ancient Wisdom, Future Technology",
+        "speakers": "Dr. Harish Madhav & Aarthi Sundaram",
+        "type": "Fireside Chat",
+        "date": "June 15, 2026",
+        "duration": "52 mins",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "keyQuotes": [
+          "Traditional knowledge systems were inherently sustainable because they treated ecology as part of the self."
+        ]
+      }
+    ],
+    "resources": [
+      {
+        "id": "res-301",
+        "title": "Indic Knowledge Systems Integration Manual",
+        "type": "PDF",
+        "size": "3.5 MB",
+        "url": "#",
+        "description": "Guidebook for educators incorporating traditional science into school curricula."
+      }
+    ],
+    "contributors": [
+      {
+        "id": "contrib-301",
+        "name": "Dr. Harish Madhav",
+        "role": "Principal Investigator",
+        "affiliation": "Indic Knowledge Foundation",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+        "focus": "Sanskrit Computational Linguistics",
+        "link": "#"
+      }
+    ],
+    "acceptanceCriteria": [
+      {
+        "id": "ac-301",
+        "title": "Archive 100 Classical Scientific Manuscripts",
+        "description": "Digitize, annotate, and translate key texts into open-access formats.",
+        "status": "in_progress",
+        "targetDate": "October 2026"
+      }
+    ]
+  }
+]

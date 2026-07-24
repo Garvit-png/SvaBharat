@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Ideas } from "./pages/Ideas";
+import { IdeaDetail } from "./pages/IdeaDetail";
 import { Blogs } from "./pages/Blogs";
 import { Contact } from "./pages/Contact";
 import { Admin } from "./pages/Admin";
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="ideas" element={<Ideas />} />
+          <Route path="ideas/:id" element={<IdeaDetail />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
         </Route>
