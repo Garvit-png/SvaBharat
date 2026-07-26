@@ -386,40 +386,33 @@ Community Discussion
 
 ---
 
-# 👨‍💻 Contributors
+# 👨‍💻 Future Contributors
 
-This project is open to contributors in the following domains:
+**SvaBharat** is a community-driven movement. We are actively looking for passionate individuals who want to build a world-class platform to reimagine the future of Bharat. Whether you write code, design interfaces, or craft words, there is a place for you here.
 
-### UI/UX Designer
-- Figma
-- Design System
-- Wireframes
+We are currently looking for contributors in the following areas:
 
-### Frontend Developer
-- Next.js
-- React
-- Tailwind
-- GSAP
+### 🎨 UI/UX & Motion Designers
+Help us craft a premium, cinematic user experience.
+- **Skills:** Figma, Design Systems, Wireframing, Micro-interactions.
+- **Motion:** GSAP, Framer Motion, Lottie, SVG Animations.
 
-### Backend Developer
-- Node.js
-- Express
-- MongoDB
+### 💻 Frontend Engineers
+Build scalable, highly interactive, and performant web interfaces.
+- **Tech Stack:** React (Vite), TypeScript, Tailwind CSS, GSAP, Framer Motion, Three.js.
+- **Focus:** Smooth scrolling, complex animations, accessible UI, and dynamic content rendering.
 
-### Motion Designer
-- GSAP
-- SVG
-- Lottie
+### ⚙️ Backend Engineers
+Develop a robust, headless CMS and scalable APIs for our ideas platform.
+- **Tech Stack:** Node.js, Express, MongoDB, RESTful APIs.
+- **Focus:** Authentication, role-based access, content management, and performance optimization.
 
-### Content Writer
-- Blogs
-- Research
-- Copywriting
+### ✍️ Content & Research Contributors
+Shape the narratives, discussions, and first-principles research that drive SvaBharat.
+- **Roles:** Content Writers, Policy Researchers, Documentation Specialists, Copywriters.
+- **Focus:** Writing deeply researched ideas, moderating conversations, and managing blogs.
 
-### Research Contributor
-- Ideas
-- Policy Research
-- Documentation
+*If you resonate with our mission to "Think from the Sva. Build for Bharat," we'd love to have you on board! Check out our [CONTRIBUTING.md](./CONTRIBUTING.md) to get started.*
 
 ---
 
