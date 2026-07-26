@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Info, Lightbulb, BookOpen, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { AnimatedDock } from "./ui/animated-dock";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,29 @@ export function Navbar() {
     { to: "/ideas", label: "Ideas" },
     { to: "/blogs", label: "Blogs" },
     { to: "/contact", label: "Contact" },
+  ];
+
+  const dockItems = [
+    {
+      link: "/about",
+      label: "About",
+      Icon: <Info size={22} />,
+    },
+    {
+      link: "/ideas",
+      label: "Ideas",
+      Icon: <Lightbulb size={22} />,
+    },
+    {
+      link: "/blogs",
+      label: "Blogs",
+      Icon: <BookOpen size={22} />,
+    },
+    {
+      link: "/contact",
+      label: "Contact",
+      Icon: <Mail size={22} />,
+    },
   ];
 
   return (
@@ -39,25 +63,10 @@ export function Navbar() {
         </span>
       </div>
 
-      {/* Desktop Nav */}
-      <nav className="pointer-events-auto hidden md:flex items-center gap-10 px-10 pt-8 text-sm font-bold tracking-wider text-charcoal">
-        {links.map((l) => {
-          const isActive = location.pathname === l.to;
-          return (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`transition-all duration-300 pb-1 uppercase text-xs ${
-                isActive 
-                  ? "text-primary border-b-2 border-primary font-black" 
-                  : "text-neutral-550 hover:text-primary hover:-translate-y-0.5"
-              }`}
-            >
-              {l.label}
-            </Link>
-          );
-        })}
-      </nav>
+      {/* Desktop Nav - Animated Dock */}
+      <div className="pointer-events-auto hidden md:flex items-center pr-8 pt-4">
+        <AnimatedDock items={dockItems} />
+      </div>
 
       {/* Mobile Hamburger */}
       <div className="pointer-events-auto flex md:hidden px-5 pt-7 relative z-50">
