@@ -1,430 +1,111 @@
-# 🇮🇳 SvaBharat Website
+<div align="center">
+  <img src="public/logo.png" alt="SvaBharat Logo" width="120" />
 
-> **Reimagining Bharat. From First Principles.**
+  # 🇮🇳 SvaBharat 
 
-SvaBharat is a digital platform built to encourage original thinking, meaningful conversations, and first-principles approaches towards the future of Bharat. It serves as the central hub for ideas, conversations, research, contributors, and community participation.
+  > **Reimagining Bharat. From First Principles.**
 
----
+  SvaBharat is a digital platform built to encourage original thinking, meaningful conversations, and first-principles approaches towards the future of Bharat. It serves as the central hub for ideas, conversations, research, contributors, and community participation.
 
-# 🎯 Vision
-
-SvaBharat is not just another website.
-
-It is a living knowledge platform where ideas evolve through conversations, research, collaboration, and continuous refinement.
-
-The platform aims to provide an ecosystem where students, researchers, entrepreneurs, policymakers, technologists, educators, artists, and citizens can collectively rethink Bharat from first principles.
-
----
-
-# 🚀 Project Goals
-
-- Build a modern and premium website for SvaBharat.
-- Develop a scalable CMS for non-technical administrators.
-- Create an engaging storytelling experience through animations.
-- Make every page dynamic and easily manageable.
-- Enable contributors to publish ideas without writing code.
-- Build a platform that grows with time.
+  <p>
+    <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
+    <a href="https://framer.com/motion/"><img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" /></a>
+  </p>
+</div>
 
 ---
 
-# 🌐 Website Structure
+## 🎯 Vision
 
-```
-Home
-│
-├── Hero
-├── Central Idea
-├── Why SvaBharat
-├── How We Think
-├── Featured Conversation
-├── Join the Movement
-└── Newsletter
-
-About
-│
-├── Our Philosophy
-├── Logo & Meaning
-├── Our Approach
-├── The Movement
-└── Contributors
-
-Ideas
-│
-├── All Ideas
-└── Individual Idea
-      ├── Notion
-      ├── Idea Brief
-      └── Conversation
-
-Blogs
-│
-└── All Blogs
-
-Contact
-│
-├── Contact Form
-├── Email
-├── Phone
-└── Team
-```
+**SvaBharat is not just another website.** It is a living knowledge platform where ideas evolve through conversations, research, collaboration, and continuous refinement. The platform aims to provide an ecosystem where students, researchers, entrepreneurs, policymakers, technologists, educators, artists, and citizens can collectively rethink Bharat from first principles.
 
 ---
 
-# 💻 Tech Stack
+## 🚀 Project Goals
 
-### Frontend
-
-- Next.js
-- React.js
-- TypeScript
-- Tailwind CSS
-- GSAP
-- Framer Motion
-- Lenis Smooth Scroll
+✨ **Premium Experience:** Build a modern, highly interactive, and premium website.  
+📝 **Scalable CMS:** Develop a backend architecture for non-technical administrators.  
+🎬 **Storytelling:** Create an engaging storytelling experience through Framer Motion and GSAP animations.  
+🔄 **Dynamic Content:** Make every page dynamic and easily manageable.  
+🤝 **Collaboration:** Enable contributors to publish ideas without writing code.  
+🌱 **Growth:** Build a robust platform that scales and grows with time.
 
 ---
 
-### Backend
+## 💻 Tech Stack
 
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT Authentication
-- Cloudinary
-- Nodemailer
+| Category      | Technologies |
+| ----------- | ----------- |
+| **Frontend**      | React.js, TypeScript, Tailwind CSS, Framer Motion, Lenis Smooth Scroll |
+| **Backend**   | Node.js, Express.js, MongoDB, Mongoose, JWT Authentication, Cloudinary |
+| **Deployment**| Vercel, MongoDB Atlas, GitHub Actions |
 
 ---
 
-### CMS
+## 🎨 Design Language & Philosophy
 
-- Custom Admin Dashboard
-- Dynamic Content Management
-- Rich Text Editor
-- Image Uploads
-- Role Based Access
-- Analytics Dashboard
+The website should feel like a premium product rather than a traditional NGO website. We take inspiration from the very best digital experiences: **Apple, Stripe, Linear, Vercel, and Notion.**
 
----
-
-### Deployment
-
-- Vercel
-- MongoDB Atlas
-- Cloudinary
-- GitHub Actions
+*   **Clean Typography:** Emphasizing readability and elegance.
+*   **Whitespace:** Generous spacing for a breathable UI.
+*   **Glassmorphism & Gradients:** Modern UI techniques with depth.
+*   **Premium Animations:** Micro-interactions that delight the user.
+*   **Mobile First & Accessible:** Beautiful on any device for any user.
 
 ---
 
-# ✨ Core Features
+## ✨ Core Features & Structure
 
-## Home
+### 🏠 Home
+*   **Animated Hero Section:** Text reveals, glowing backdrops, and interactive elements.
+*   **Featured Conversations & Storytelling:** Scroll-linked parallax effects and dynamic content loading.
 
-- Animated Hero Section
-- Interactive storytelling
-- Featured Conversations
-- Newsletter
-- Smooth scroll animations
+### 📖 About
+*   **Philosophy & First Principles:** Bento-grid layouts detailing the core ethos of SvaBharat.
+*   **The Movement & Logo:** Deep dives into what SvaBharat represents and the team behind it.
 
----
+### 💡 Ideas & Blogs
+*   **Dynamic Knowledge Base:** A rich library of ideas containing descriptions, Notion links, research briefs, and integrated videos.
+*   **Categorized Content:** Powerful search, markdown support, reading time estimation, and tag filtering.
 
-## About
-
-- Philosophy of Sva
-- Meaning behind Logo
-- First Principles Thinking
-- Contributors
-- Movement Story
+### 🛠 CMS (Admin Panel)
+*   Administrators can effortlessly manage blogs, ideas, contributors, media, and newsletters without touching a single line of code. Features robust Role-Based Access Control (Super Admin, Admin, Contributor).
 
 ---
 
-## Ideas
+## 📂 Project Architecture
 
-Dynamic Idea Library
-
-Every Idea contains
-
-- Title
-- Description
-- Notion Link
-- Research Brief
-- Videos
-- Contributors
-- Related Blogs
-
----
-
-## Blogs
-
-- Dynamic Blogs
-- Categories
-- Search
-- Reading Time
-- Markdown Support
-
----
-
-## Contact
-
-- Contact Form
-- Email Integration
-- Team Members
-- Social Links
-
----
-
-# 🛠 CMS Features
-
-Administrators should be able to manage everything without touching code.
-
-Dashboard includes:
-
-- Blogs
-- Ideas
-- Contributors
-- Team Members
-- Conversations
-- Newsletter
-- Media Library
-- Contact Requests
-- Analytics
-
----
-
-# 👥 User Roles
-
-## Super Admin
-
-- Full Access
-
-## Admin
-
-- Manage Website
-- Publish Blogs
-- Publish Ideas
-
-## Contributor
-
-- Submit Ideas
-- Draft Blogs
-
----
-
-# 📂 Folder Structure
-
-```
+```text
 svabharat/
-
-├── app/
-├── components/
-├── pages/
-├── hooks/
-├── lib/
-├── animations/
-├── public/
-├── styles/
-├── utils/
-├── types/
-
-├── server/
-│
-├── controllers/
-├── models/
-├── routes/
-├── middleware/
-├── config/
-
-├── cms/
-│
-├── dashboard/
-├── editor/
-├── uploads/
-
-└── README.md
+├── src/
+│   ├── components/       # Reusable UI components & Animated elements
+│   ├── pages/            # Core routing pages (Home, About, Ideas, etc.)
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions & API configurations
+│   ├── styles/           # Global styling (index.css)
+│   └── types/            # TypeScript definitions
+├── server/               # Node.js + Express backend (Models, Routes, Controllers)
+├── cms/                  # Custom Admin Dashboard integration
+└── public/               # Static assets & illustrations
 ```
 
 ---
 
-# 🎨 Design Language
+## 👨‍💻 Contributing
 
-The website should feel like a premium product rather than a traditional NGO website.
+We welcome contributors across all disciplines! Check out our [CONTRIBUTING.md](./CONTRIBUTING.md) to get started. We are actively looking for:
 
-Inspired by
-
-- Apple
-- Stripe
-- Linear
-- Vercel
-- Notion
-
-Design Principles
-
-- Clean typography
-- Large whitespace
-- Glassmorphism
-- Premium animations
-- Smooth transitions
-- Responsive
-- Accessible
-- Minimal yet powerful
+*   **UI/UX Designers:** Figma, Design Systems, Wireframes
+*   **Frontend Developers:** React, Tailwind, Framer Motion, Web Animations
+*   **Backend Developers:** Node.js, Express, MongoDB Architecture
+*   **Content & Research:** Blogs, Copywriting, Policy Research, Idea Curation
 
 ---
 
-# 🎬 Animations
-
-- Hero reveal animation
-- Page transitions
-- Scroll based storytelling
-- Floating backgrounds
-- Text reveal
-- SVG animations
-- Cards on scroll
-- Parallax effects
-- Interactive CTA animations
-
----
-
-# 🔍 Search
-
-Users should be able to search
-
-- Ideas
-- Blogs
-- Contributors
-- Conversations
-
----
-
-# 📈 SEO
-
-- Dynamic Meta Tags
-- Sitemap
-- robots.txt
-- Open Graph
-- Structured Data
-- Canonical URLs
-
----
-
-# 📱 Responsive
-
-Fully optimized for
-
-- Mobile
-- Tablet
-- Desktop
-
----
-
-# ⚡ Performance
-
-Target
-
-- Lighthouse 95+
-- SEO 100
-- Accessibility 100
-- Performance 90+
-
----
-
-# 📬 Newsletter
-
-Users can subscribe to receive
-
-- New Ideas
-- Blog Posts
-- Conversations
-- Research Updates
-
----
-
-# 🤝 Contributor Workflow
-
-```
-Contributor
-
-↓
-
-Submit Idea
-
-↓
-
-Admin Review
-
-↓
-
-Publish
-
-↓
-
-Conversation
-
-↓
-
-Research Updates
-
-↓
-
-Community Discussion
-```
-
----
-
-# 🎯 Future Scope
-
-- AI Search
-- AI Idea Summaries
-- Discussion Forums
-- Public Profiles
-- Reading Lists
-- Bookmarks
-- Podcasts
-- Events
-- Community Chapters
-- Multi-language Support
-- Dark / Light Mode
-
----
-
-# 👨‍💻 Contributors
-
-This project is open to contributors in the following domains:
-
-### UI/UX Designer
-- Figma
-- Design System
-- Wireframes
-
-### Frontend Developer
-- Next.js
-- React
-- Tailwind
-- GSAP
-
-### Backend Developer
-- Node.js
-- Express
-- MongoDB
-
-### Motion Designer
-- GSAP
-- SVG
-- Lottie
-
-### Content Writer
-- Blogs
-- Research
-- Copywriting
-
-### Research Contributor
-- Ideas
-- Policy Research
-- Documentation
-
----
-
-# 📌 Mission Statement
-
-> **Think from the Sva. Build for Bharat.**
-
-SvaBharat is a movement to question assumptions, think from first principles, and imagine new possibilities for Bharat through ideas, conversations, research, and collaboration.
+<div align="center">
+  <h3>📌 Mission Statement</h3>
+  <h2><em>"Think from the Sva. Build for Bharat."</em></h2>
+  <p>SvaBharat is a movement to question assumptions, think from first principles, and imagine new possibilities for Bharat through ideas, conversations, research, and collaboration.</p>
+</div>
