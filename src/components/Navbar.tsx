@@ -1,12 +1,31 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const lastScrollY = useRef(0);
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY.current) {
+        // Scrolling up -> show navbar
+        setShowNavbar(true);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        // Scrolling down (and past the top area) -> hide navbar
+        setShowNavbar(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const links = [
     { to: "/about", label: "About" },
     { to: "/ideas", label: "Ideas" },
@@ -15,8 +34,11 @@ export function Navbar() {
   ];
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-50 w-full flex items-start justify-between pointer-events-none">
-
+<div
+      className={`fixed top-0 left-0 right-0 z-50 w-full flex items-start justify-between pointer-events-none transition-transform duration-300 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       {/* Logo Cutout */}
       <div className="flex items-center pointer-events-auto">
         <div className="relative p-4 md:p-6 bg-white flex items-center justify-center z-50 rounded-br-[1.5rem] md:rounded-br-[2rem] border-r-2 border-b-2 border-white shadow-sm">
