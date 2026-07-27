@@ -120,17 +120,7 @@ svabharat/
 
 ---
 
-## 👨‍💻 Contributing
 
-We are open-source and we welcome contributors across all disciplines! 
-
-Whether you are a developer, designer, researcher, or writer, there is a place for you here. **Check out our extensive [CONTRIBUTING.md](./CONTRIBUTING.md)** to get started. 
-
-We are actively looking for:
-*   **UI/UX Designers:** Figma, Design Systems, Wireframes
-*   **Frontend Developers:** React, Tailwind, Framer Motion, Web Animations
-*   **Backend Developers:** Node.js, Express, MongoDB Architecture
-*   **Content & Research:** Blogs, Copywriting, Policy Research, Idea Curation
 
 ---
 
