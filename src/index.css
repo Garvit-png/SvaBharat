@@ -56,10 +56,4 @@
   }
 }
 
-/* Hide default cursor on desktop pointer devices only (keeps mobile usable) */
-@media (pointer: fine) {
-  body, a, button, [role="button"], input, select, textarea, .cursor-pointer {
-    cursor: none !important;
-  }
-}
 
