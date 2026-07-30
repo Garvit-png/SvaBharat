@@ -4,28 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const lastScrollY = useRef(0);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY.current) {
-        // Scrolling up -> show navbar
-        setShowNavbar(true);
-      } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-        // Scrolling down (and past the top area) -> hide navbar
-        setShowNavbar(false);
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   const links = [
     { to: "/about", label: "About" },
     { to: "/ideas", label: "Ideas" },
@@ -34,10 +13,8 @@ export function Navbar() {
   ];
 
   return (
-<div
-      className={`fixed top-0 left-0 right-0 z-50 w-full flex items-start justify-between pointer-events-none transition-transform duration-300 ${
-        showNavbar ? "translate-y-0" : "-translate-y-full"
-      }`}
+    <div
+      className="absolute -top-[2px] -left-[2px] right-0 z-50 w-full flex items-start justify-between pointer-events-none"
     >
       {/* Logo Cutout */}
       <div className="flex items-center pointer-events-auto">
@@ -62,7 +39,7 @@ export function Navbar() {
       </div>
 
       {/* Desktop Nav */}
-      <nav className="pointer-events-auto hidden md:flex items-center gap-10 px-10 pt-8 text-sm font-bold tracking-wider text-charcoal">
+      <nav className="pointer-events-auto hidden md:flex items-center gap-10 pr-6 md:pr-10 lg:pr-12 pt-6 md:pt-8 text-sm font-bold tracking-wider text-charcoal">
         {links.map((l) => {
           const isActive = location.pathname === l.to;
           return (
@@ -82,7 +59,7 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Hamburger */}
-      <div className="pointer-events-auto flex md:hidden px-5 pt-7 relative z-50">
+      <div className="pointer-events-auto flex md:hidden pr-5 pt-6 relative z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 text-charcoal hover:text-primary transition-colors"

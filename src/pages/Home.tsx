@@ -34,13 +34,13 @@ export function Home() {
       <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
         <CutTitle position="top-left">What Does "SvaBharat" Mean?</CutTitle>
 
-        <div className="mt-16 md:mt-20 max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl text-neutral-600 font-bold mb-16 leading-relaxed text-center font-serif">
+        <div className="mt-16 md:mt-20 w-full lg:w-[60%] lg:ml-auto max-w-4xl relative z-20 pb-4 md:pb-8 transform lg:translate-x-4 xl:translate-x-8">
+          <p className="text-lg md:text-xl text-neutral-600 font-bold mb-12 md:mb-16 leading-relaxed text-center lg:text-left font-serif">
             SvaBharat (स्वभारत) is formed from two Sanskrit words, each carrying centuries of meaning.
           </p>
 
           {/* Cards with slack rope */}
-          <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-0 mb-16">
+          <div className="flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-0 mb-12 md:mb-16">
             <div className="w-full md:w-[42%] bg-white rounded-2xl p-8 border-2 border-white text-center shadow-md">
               <p className="text-xs font-bold text-neutral-400 tracking-widest uppercase mb-4">First word</p>
               <h3 className="text-3xl md:text-4xl font-serif font-extrabold mb-2 text-charcoal">Sva</h3>
@@ -63,11 +63,20 @@ export function Home() {
             </div>
           </div>
 
-          <div className="border-l-4 border-secondary pl-6 py-2 mx-auto max-w-2xl bg-white/40 rounded-r-xl">
-            <p className="text-lg md:text-xl font-bold text-charcoal leading-snug text-center font-serif">
+          <div className="border-l-4 border-secondary pl-6 py-2 mx-auto lg:mx-0 max-w-2xl bg-white/40 rounded-r-xl">
+            <p className="text-lg md:text-xl font-bold text-charcoal leading-snug text-center lg:text-left font-serif">
               Together: <span className="font-extrabold text-primary">"Own India"</span> — a self-reliant, self-aware Bharat driven by the aspirations of its own people.
             </p>
           </div>
+        </div>
+
+        {/* Absolute Decorative Image on Left */}
+        <div className="absolute top-0 bottom-0 left-0 w-full lg:w-[42%] xl:w-[45%] h-full pointer-events-none select-none flex items-end">
+          <img 
+            src="/img2.png?v=2" 
+            alt="SvaBharat Meaning" 
+            className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-right-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 -translate-x-2 lg:-translate-x-4 xl:-translate-x-8"
+          />
         </div>
       </section>
 
@@ -96,7 +105,7 @@ export function Home() {
         {/* Absolute Decorative Image */}
         <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[60%] pointer-events-none select-none">
           <img 
-            src="/middle2.png" 
+            src="/middle2.png?v=2" 
             alt="First Principles Illustration" 
             className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-6 md:translate-y-10"
           />
@@ -181,7 +190,7 @@ export function Home() {
         <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
           <CutTitle position="top-left">Voices of the Movement</CutTitle>
 
-          <div className="mt-16 md:mt-20 max-w-6xl mx-auto">
+          <div className="mt-16 md:mt-20 max-w-6xl mx-auto relative z-20">
             <p className="text-lg md:text-xl text-neutral-600 font-bold mb-12 text-center font-serif">
               What researchers, practitioners, and builders say about the SvaBharat movement.
             </p>
@@ -208,12 +217,30 @@ export function Home() {
               ))}
             </div>
           </div>
+
+          {/* Absolute Decorative Image on Left */}
+          <div className="absolute top-0 bottom-0 left-0 w-[90%] sm:w-[80%] lg:w-[30%] xl:w-[35%] h-full pointer-events-none select-none flex items-end justify-start">
+            <img 
+              src="/img4.png" 
+              alt="Voices Left Illustration" 
+              className="w-full h-[90%] mix-blend-multiply opacity-90 object-contain object-bottom lg:object-left-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 -translate-x-8 lg:-translate-x-16 xl:-translate-x-24"
+            />
+          </div>
+
+          {/* Absolute Decorative Image on Right */}
+          <div className="absolute top-0 bottom-0 right-0 w-full lg:w-[40%] xl:w-[42%] h-full pointer-events-none select-none flex items-end justify-end">
+            <img 
+              src="/img3.png" 
+              alt="Voices Right Illustration" 
+              className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-right-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 translate-x-8 lg:translate-x-12 xl:translate-x-20"
+            />
+          </div>
         </section>
       )}
 
       {/* ── NEWSLETTER ── */}
       <section className="relative w-full py-16 md:py-20 px-6 md:px-16 lg:px-24 bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
-        <div className="max-w-xl">
+        <div className="max-w-xl relative z-20">
           <h2 className="text-2xl md:text-3xl font-serif font-extrabold mb-3 text-charcoal">Stay Close to Ideas That Matter</h2>
           <p className="text-neutral-600 font-semibold mb-8 text-sm md:text-base">A thoughtful selection of ideas, questions, and reflections from the SvaBharat movement.</p>
           <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
@@ -226,6 +253,19 @@ export function Home() {
               Subscribe
             </button>
           </form>
+        </div>
+
+        {/* Absolute Decorative Image */}
+        <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[85%] sm:w-[75%] md:w-[60%] lg:w-[50%] xl:w-[45%] pointer-events-none select-none">
+          <img 
+            src="/img1.png?v=3" 
+            alt="Indic Wisdom and Traditions" 
+            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-12 md:translate-y-20 lg:translate-y-24 xl:translate-y-28 -translate-x-2 md:-translate-x-6 lg:-translate-x-10"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 25%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, black 25%)'
+            }}
+          />
         </div>
       </section>
 
