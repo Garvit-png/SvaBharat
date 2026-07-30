@@ -73,7 +73,7 @@ export function Home() {
         {/* Absolute Decorative Image on Left */}
         <div className="absolute top-0 bottom-0 left-0 w-full lg:w-[42%] xl:w-[45%] h-full pointer-events-none select-none flex items-end">
           <img 
-            src="/img2.png" 
+            src="/img2.png?v=2" 
             alt="SvaBharat Meaning" 
             className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-right-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 -translate-x-2 lg:-translate-x-4 xl:-translate-x-8"
           />
@@ -105,7 +105,7 @@ export function Home() {
         {/* Absolute Decorative Image */}
         <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[60%] pointer-events-none select-none">
           <img 
-            src="/middle2.png" 
+            src="/middle2.png?v=2" 
             alt="First Principles Illustration" 
             className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-6 md:translate-y-10"
           />
@@ -258,9 +258,9 @@ export function Home() {
         {/* Absolute Decorative Image */}
         <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[85%] sm:w-[75%] md:w-[60%] lg:w-[50%] xl:w-[45%] pointer-events-none select-none">
           <img 
-            src="/img1.png" 
-            alt="Newsletter Illustration" 
-            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-4 md:translate-y-8 lg:translate-y-12"
+            src="/img1.png?v=3" 
+            alt="Indic Wisdom and Traditions" 
+            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-12 md:translate-y-20 lg:translate-y-24 xl:translate-y-28 -translate-x-2 md:-translate-x-6 lg:-translate-x-10"
             style={{
               WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 25%)',
               maskImage: 'linear-gradient(to right, transparent 0%, black 25%)'
