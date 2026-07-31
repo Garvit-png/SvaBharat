@@ -32,7 +32,7 @@ export function Hero({ showAnimation }: { showAnimation: boolean }) {
   }, [showAnimation]);
 
   return (
-    <section className="relative w-full h-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] flex flex-col overflow-hidden text-charcoal bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat">
+    <section className="relative w-full h-full min-h-screen flex flex-col overflow-hidden text-charcoal bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat">
       
       {/* Subtle background paths */}
       <BackgroundPaths />

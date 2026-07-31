@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 import { CutTitle } from "../components/CutTitle";
-import { Navbar } from "../components/Navbar";
 import { getTestimonials, type Testimonial } from "../utils/storage";
 import { Quote } from "lucide-react";
 
@@ -25,11 +24,13 @@ export function Home() {
   return (
     <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
 
-      {/* ── HERO ── */}
-      <section className="relative w-full min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-4rem)] lg:min-h-[calc(100dvh-5rem)] bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
-        <Navbar />
+      {/* ── HERO — full bleed, no outer padding ── */}
+      <section className="relative min-h-screen bg-cream overflow-hidden">
         <Hero showAnimation={true} />
       </section>
+
+      {/* ── All other sections wrapped with outer padding ── */}
+      <div className="flex flex-col gap-4 md:gap-8 lg:gap-10 px-4 md:px-8 lg:px-10 pb-4 md:pb-8 lg:pb-10">
 
       <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
         <CutTitle position="top-left">What Does "SvaBharat" Mean?</CutTitle>
@@ -229,6 +230,7 @@ export function Home() {
         </div>
       </section>
 
+      </div>
     </div>
   );
 }

@@ -1,31 +1,16 @@
-import { useState, useEffect, useRef } from "react";import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const lastScrollY = useRef(0);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    setIsOpen(false);
+  }, [location.pathname]);
 
-      if (currentScrollY < lastScrollY.current) {
-        // Scrolling up -> show navbar
-        setShowNavbar(true);
-      } else if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-        // Scrolling down (and past the top area) -> hide navbar
-        setShowNavbar(false);
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   const links = [
     { to: "/about", label: "About" },
     { to: "/ideas", label: "Ideas" },
@@ -34,62 +19,57 @@ export function Navbar() {
   ];
 
   return (
-<div
-      className={`fixed top-0 left-0 right-0 z-50 w-full flex items-start justify-between pointer-events-none transition-transform duration-300 ${
-        showNavbar ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      {/* Logo Cutout */}
-      <div className="flex items-center pointer-events-auto">
-        <div className="relative p-4 md:p-6 bg-white flex items-center justify-center z-50 rounded-br-[1.5rem] md:rounded-br-[2rem] border-r-2 border-b-2 border-white shadow-sm">
-          <Link to="/" className="transform transition-transform hover:scale-105">
-            <img src="/logo.png" alt="SvaBharat" className="w-16 h-16 md:w-20 md:h-20 object-contain mix-blend-multiply" />
+    <>
+      <div className="fixed top-0 left-0 right-0 z-50 w-full pointer-events-none">
+        <div className="pointer-events-auto flex items-center justify-between px-6 md:px-10 py-3 md:py-4">
+
+          {/* Left — Logo */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white ring-2 ring-white/80 shadow-lg transition-all duration-300 group-hover:scale-105">
+              <img
+                src="/logo.png"
+                alt="SvaBharat"
+                className="w-10 h-10 object-contain mix-blend-multiply"
+              />
+            </div>
+            <span className="font-serif font-extrabold tracking-wider text-primary text-base hidden sm:block">
+              SvaBharat
+            </span>
           </Link>
-          {/* Right concave */}
-          <svg className="absolute top-0 -right-8 md:-right-10 w-8 h-8 md:w-10 md:h-10 fill-white pointer-events-none" viewBox="0 0 32 32">
-            <path d="M0,0 H32 A32,32 0 0,0 0,32 Z" />
-          </svg>
-          {/* Bottom concave */}
-          <svg className="absolute -bottom-8 md:-bottom-10 left-0 w-8 h-8 md:w-10 md:h-10 fill-white pointer-events-none" viewBox="0 0 32 32">
-            <path d="M0,0 H32 A32,32 0 0,0 0,32 Z" />
-          </svg>
-        </div>
 
-        {/* Brand name — minimal, elegant */}
-        <span className="ml-5 md:ml-7 text-lg md:text-xl font-serif font-extrabold tracking-wider text-primary hidden sm:block">
-          SvaBharat
-        </span>
-      </div>
-
-      {/* Desktop Nav */}
-      <nav className="pointer-events-auto hidden md:flex items-center gap-10 px-10 pt-8 text-sm font-bold tracking-wider text-charcoal">
-        {links.map((l) => {
-          const isActive = location.pathname === l.to;
-          return (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`transition-all duration-300 pb-1 uppercase text-xs ${
-                isActive 
-                  ? "text-primary border-b-2 border-primary font-black" 
-                  : "text-neutral-550 hover:text-primary hover:-translate-y-0.5"
-              }`}
+          {/* Right — Nav links / hamburger */}
+          <div className="flex items-center">
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex md:hidden p-2 text-charcoal hover:text-primary transition-colors"
+              aria-label="Toggle menu"
             >
-              {l.label}
-            </Link>
-          );
-        })}
-      </nav>
+              <Menu size={22} />
+            </button>
 
-      {/* Mobile Hamburger */}
-      <div className="pointer-events-auto flex md:hidden px-5 pt-7 relative z-50">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-charcoal hover:text-primary transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+            {/* Desktop nav — frosted pill always */}
+            <nav className="hidden md:flex items-center gap-7 bg-white/60 backdrop-blur-sm rounded-2xl px-5 py-2.5 ring-1 ring-white/70 shadow-sm">
+              {links.map((l) => {
+                const isActive = location.pathname === l.to;
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className={`uppercase text-xs font-black tracking-widest transition-all duration-200 pb-0.5 ${
+                      isActive
+                        ? "text-primary border-b-2 border-primary"
+                        : "text-charcoal hover:text-primary hover:-translate-y-0.5"
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -99,24 +79,34 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center pointer-events-auto border border-neutral-200/20"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-cream flex flex-col items-center justify-center pointer-events-auto"
           >
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-6 p-2 text-charcoal hover:text-primary transition-colors"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+
             <div className="flex flex-col items-center gap-8">
               {links.map((l, i) => {
                 const isActive = location.pathname === l.to;
                 return (
                   <motion.div
                     key={l.to}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.3, delay: i * 0.05 + 0.1 }}
+                    exit={{ opacity: 0, y: 16 }}
+                    transition={{ duration: 0.25, delay: i * 0.05 }}
                   >
                     <Link
                       to={l.to}
                       className={`text-3xl font-serif font-extrabold transition-colors ${
-                        isActive ? "text-primary underline decoration-2 underline-offset-8" : "text-charcoal hover:text-primary"
+                        isActive
+                          ? "text-primary underline decoration-2 underline-offset-8"
+                          : "text-charcoal hover:text-primary"
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
@@ -129,6 +119,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }

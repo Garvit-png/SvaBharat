@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { CutTitle } from "../components/CutTitle";
-import { Navbar } from "../components/Navbar";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -111,7 +110,7 @@ export function About() {
 
       <section className="relative w-full overflow-hidden rounded-3xl bg-cream px-6 py-24 md:rounded-[3rem] md:px-12 lg:px-24 border-2 border-white">
         <CutTitle position="top-left">Logo Explanation</CutTitle>
-        <motion.div {...fadeUp} className="mx-auto mt-16 grid max-w-5xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <motion.div {...fadeUp} className="mx-auto mt-aw grid max-w-5xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="flex justify-center">
             <div className="rounded-full bg-white p-10 shadow-md border-2 border-white">
               <img src="/logo.png" alt="SvaBharat logo" className="h-44 w-44 object-contain mix-blend-multiply" />

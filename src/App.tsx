@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Ideas } from "./pages/Ideas";
@@ -10,6 +11,8 @@ import { Admin } from "./pages/Admin";
 function App() {
   return (
     <BrowserRouter>
+      {/* Navbar lives outside <main> so overflow-hidden on Layout never clips it */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

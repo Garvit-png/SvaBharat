@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { CutTitle } from "../components/CutTitle";
-import { Navbar } from "../components/Navbar";
 import { getBlogs, type Blog } from "../utils/storage";
 import { X, Calendar, Clock, User, Tag } from "lucide-react";
 
@@ -24,10 +23,9 @@ export function Blogs() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
+    <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10 px-4 md:px-8 lg:px-10 pt-4 md:pt-8 lg:pt-10">
       {/* Page Header */}
       <section className="relative w-full pt-32 pb-16 px-6 md:px-12 lg:px-24 bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
-        <Navbar />
         <h1 className="text-5xl md:text-7xl font-serif font-extrabold tracking-tight mb-6 text-charcoal">Thinking in Public</h1>
         <p className="text-xl md:text-2xl text-neutral-600 max-w-3xl font-serif font-bold">
           Essays, reflections, questions, field observations, and emerging perspectives.
