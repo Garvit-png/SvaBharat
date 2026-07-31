@@ -103,9 +103,9 @@ export function Home() {
         </div>
 
         {/* Absolute Decorative Image */}
-        <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[60%] pointer-events-none select-none">
+        <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-6 md:-right-10 lg:-right-14 xl:-right-16 w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[55%] pointer-events-none select-none">
           <img 
-            src="/middle2.png?v=2" 
+            src="/middle2.png?v=3" 
             alt="First Principles Illustration" 
             className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-6 md:translate-y-10"
           />
@@ -178,9 +178,9 @@ export function Home() {
         {/* Absolute Decorative Image */}
         <div className="absolute -bottom-4 md:-bottom-8 lg:-bottom-12 -right-4 md:-right-8 lg:-right-12 w-[85%] sm:w-[75%] md:w-[60%] lg:w-[55%] xl:w-[55%] pointer-events-none select-none">
           <img 
-            src="/middle3.png" 
+            src="/img4.png?v=2" 
             alt="Join the Movement Illustration" 
-            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-4 md:translate-y-8 lg:translate-y-12"
+            className="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500 transform translate-y-0 md:translate-y-2 lg:translate-y-4"
           />
         </div>
       </section>
@@ -190,8 +190,9 @@ export function Home() {
         <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
           <CutTitle position="top-left">Voices of the Movement</CutTitle>
 
-          <div className="mt-16 md:mt-20 max-w-6xl mx-auto relative z-20">
-            <p className="text-lg md:text-xl text-neutral-600 font-bold mb-12 text-center font-serif">
+          {/* Content shifted further to the right */}
+          <div className="mt-16 md:mt-20 max-w-[95%] lg:max-w-[65rem] xl:max-w-[70rem] ml-auto mr-0 pr-6 md:pr-12 lg:pr-16 relative z-20 transform translate-x-2 md:translate-x-8 lg:translate-x-16">
+            <p className="text-lg md:text-xl text-neutral-600 font-bold mb-12 text-center lg:text-left font-serif">
               What researchers, practitioners, and builders say about the SvaBharat movement.
             </p>
 
@@ -219,22 +220,14 @@ export function Home() {
           </div>
 
           {/* Absolute Decorative Image on Left */}
-          <div className="absolute top-0 bottom-0 left-0 w-[90%] sm:w-[80%] lg:w-[30%] xl:w-[35%] h-full pointer-events-none select-none flex items-end justify-start">
+          <div className="absolute top-0 bottom-0 left-0 w-full lg:w-[55%] xl:w-[60%] h-full pointer-events-none select-none flex items-end justify-start">
             <img 
-              src="/img4.png" 
+              src="/img3.png?v=4" 
               alt="Voices Left Illustration" 
-              className="w-full h-[90%] mix-blend-multiply opacity-90 object-contain object-bottom lg:object-left-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 -translate-x-8 lg:-translate-x-16 xl:-translate-x-24"
+              className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-left-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 -translate-x-20 lg:-translate-x-40 xl:-translate-x-56"
             />
           </div>
 
-          {/* Absolute Decorative Image on Right */}
-          <div className="absolute top-0 bottom-0 right-0 w-full lg:w-[40%] xl:w-[42%] h-full pointer-events-none select-none flex items-end justify-end">
-            <img 
-              src="/img3.png" 
-              alt="Voices Right Illustration" 
-              className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-right-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 translate-x-8 lg:translate-x-12 xl:translate-x-20"
-            />
-          </div>
         </section>
       )}
 

@@ -6,7 +6,13 @@ export function Footer() {
   return (
     <footer className="relative bg-transparent text-charcoal py-16 px-6 md:px-12 rounded-3xl md:rounded-[3rem] border-0 overflow-visible">
       {/* The actual card background container */}
-      <div className="absolute inset-0 bg-cream-dark rounded-3xl md:rounded-[3rem] border-2 border-white z-0 pointer-events-none shadow-sm" />
+      <div className="absolute inset-0 bg-cream-dark rounded-3xl md:rounded-[3rem] border-2 border-white z-0 pointer-events-none shadow-sm overflow-hidden flex items-end">
+        <img 
+          src="/img5.png?v=2" 
+          alt="Footer Left Graphic" 
+          className="w-96 md:w-[32rem] lg:w-[60%] xl:w-[70%] h-auto object-contain object-bottom mix-blend-multiply opacity-90 pointer-events-none transform translate-y-10 md:translate-y-16 lg:translate-y-24 xl:translate-y-32"
+        />
+      </div>
 
       <div className="relative z-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
         
