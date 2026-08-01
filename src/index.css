@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-white text-charcoal m-0 p-0 overflow-x-hidden;
     font-family: 'Plus Jakarta Sans', sans-serif;
