@@ -114,41 +114,44 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED CONVERSATION ── */}
-      <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#fcb36d] text-white rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
-        <CutTitle position="top-left">
-          Featured Conversation
-        </CutTitle>
+      {/* ── FEATURED CONVERSATION (Temporarily Hidden) ── */}
+      {false && (
+        <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#fcb36d] text-white rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
+          <CutTitle position="top-left">
+            Featured Conversation
+          </CutTitle>
 
-        <div className="mt-16 md:mt-20 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-          {/* Video placeholder */}
-          <div className="w-full lg:w-1/2 aspect-video bg-[#1E1E1E]/40 rounded-2xl overflow-hidden group flex-shrink-0 border-2 border-white/30">
-            <div className="w-full h-full flex items-center justify-center bg-[#1E1E1E]/20 group-hover:bg-[#1E1E1E]/40 transition-colors">
-              <div className="w-16 h-16 rounded-full bg-white/20 border border-white/30 flex items-center justify-center pl-1 group-hover:bg-white/35 transition-colors shadow-lg cursor-pointer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
+          <div className="mt-16 md:mt-20 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+            {/* Video placeholder */}
+            <div className="w-full lg:w-1/2 aspect-video bg-[#1E1E1E]/40 rounded-2xl overflow-hidden group flex-shrink-0 border-2 border-white/30">
+              <div className="w-full h-full flex items-center justify-center bg-[#1E1E1E]/20 group-hover:bg-[#1E1E1E]/40 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-white/20 border border-white/30 flex items-center justify-center pl-1 group-hover:bg-white/35 transition-colors shadow-lg cursor-pointer">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M5 3l14 9-14 9V3z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2 flex flex-col justify-center">
+              <p className="text-xs font-bold tracking-widest uppercase text-white/70 mb-5">With Guest Name</p>
+              <h3 className="text-2xl md:text-3xl font-serif font-extrabold leading-snug mb-4 text-white">
+                The Future of Original Thought in Bharat
+              </h3>
+              <p className="text-white/80 font-semibold text-sm leading-relaxed mb-8">
+                A short, compelling introduction to the central question explored in the conversation.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <button className="px-6 py-3 rounded-xl bg-white text-charcoal text-xs font-bold hover:bg-[#FAF5EB] transition-all cursor-pointer active:scale-95 shadow-sm">
+                  Watch the conversation
+                </button>
+                <button className="px-6 py-3 rounded-xl border-2 border-white/30 text-white text-xs font-bold hover:bg-white/10 hover:border-white/50 transition-all cursor-pointer active:scale-95">
+                  All conversations
+                </button>
               </div>
             </div>
           </div>
+        </section>
+      )}
 
-          <div className="lg:w-1/2 flex flex-col justify-center">
-            <p className="text-xs font-bold tracking-widest uppercase text-white/70 mb-5">With Guest Name</p>
-            <h3 className="text-2xl md:text-3xl font-serif font-extrabold leading-snug mb-4 text-white">
-              The Future of Original Thought in Bharat
-            </h3>
-            <p className="text-white/80 font-semibold text-sm leading-relaxed mb-8">
-              A short, compelling introduction to the central question explored in the conversation.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <button className="px-6 py-3 rounded-xl bg-white text-charcoal text-xs font-bold hover:bg-[#FAF5EB] transition-all cursor-pointer active:scale-95 shadow-sm">
-                Watch the conversation
-              </button>
-              <button className="px-6 py-3 rounded-xl border-2 border-white/30 text-white text-xs font-bold hover:bg-white/10 hover:border-white/50 transition-all cursor-pointer active:scale-95">
-                All conversations
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── JOIN THE MOVEMENT ── */}
       <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
