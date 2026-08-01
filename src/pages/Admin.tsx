@@ -39,8 +39,8 @@ export function Admin() {
   const [passcode, setPasscode] = useState("");
   const [authError, setAuthError] = useState("");
   
-  // Tabs: 'blogs' | 'testimonials'
-  const [activeTab, setActiveTab] = useState<"blogs" | "testimonials">("blogs");
+  // Tabs: 'blogs' | 'testimonials' | 'settings'
+  const [activeTab, setActiveTab] = useState<"blogs" | "testimonials" | "settings">("blogs");
 
 
 
@@ -59,6 +59,10 @@ export function Admin() {
   // Syncing state
   const [syncStatus, setSyncStatus] = useState<string | null>(null);
   const [isSyncing, setIsSyncing] = useState(false);
+  
+  // Settings state
+  const [githubToken, setGithubToken] = useState("");
+  const [githubRepo, setGithubRepo] = useState("");
 
   // Form states - Blog
   const [editingBlogId, setEditingBlogId] = useState<string | null>(null);
@@ -98,7 +102,9 @@ export function Admin() {
     setBlogs(getBlogs());
     setTestimonials(getTestimonials());
 
-
+    // Load GitHub Settings
+    setGithubToken(localStorage.getItem("svabharat_github_token") || "");
+    setGithubRepo(localStorage.getItem("svabharat_github_repo") || "japinderofficial-hub/SvaBharat");
   }, []);
 
 
@@ -557,7 +563,66 @@ export function Admin() {
           <MessageSquare className="w-4 h-4" />
           Testimonials
         </button>
+        <button 
+          onClick={() => setActiveTab("settings")}
+          className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+            activeTab === "settings" 
+              ? "bg-white text-primary shadow-md border border-white/20" 
+              : "text-neutral-550 hover:text-primary"
+          }`}
+        >
+          <Settings className="w-4 h-4" />
+          Settings
+        </button>
       </div>
+
+      {/* Content Section: Blogs */}
+      {activeTab === "settings" && (
+        <div className="bg-white rounded-2xl p-6 sm:p-10 border-2 border-white shadow-md max-w-2xl">
+          <h2 className="text-2xl font-serif font-extrabold mb-8 text-charcoal">
+            GitHub Sync Settings
+          </h2>
+          <p className="text-sm font-semibold text-neutral-500 mb-6 leading-relaxed">
+            Configure your GitHub credentials here. This allows the Admin portal to push updates directly to your GitHub repository whenever you publish a blog or testimonial, triggering Vercel to rebuild and update the live site. 
+          </p>
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-neutral-500 uppercase tracking-widest block">GitHub Repository</label>
+              <input 
+                type="text" 
+                placeholder="e.g. japinderofficial-hub/SvaBharat"
+                value={githubRepo}
+                onChange={(e) => setGithubRepo(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold bg-cream/10"
+              />
+              <p className="text-xs font-semibold text-neutral-400">Format: username/repo-name</p>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-neutral-500 uppercase tracking-widest block">Personal Access Token (PAT)</label>
+              <input 
+                type="password" 
+                placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxx"
+                value={githubToken}
+                onChange={(e) => setGithubToken(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary text-sm font-semibold bg-cream/10"
+              />
+              <p className="text-xs font-semibold text-neutral-400">Your token is stored locally in your browser and never sent anywhere except GitHub API.</p>
+            </div>
+
+            <button 
+              onClick={() => {
+                localStorage.setItem("svabharat_github_token", githubToken);
+                localStorage.setItem("svabharat_github_repo", githubRepo);
+                alert("Settings saved successfully! Blogs and Testimonials will now auto-push to GitHub.");
+              }}
+              className="px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-secondary transition-colors shadow-sm cursor-pointer active:scale-95"
+            >
+              Save Settings
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Content Section: Blogs */}
       {activeTab === "blogs" && (
