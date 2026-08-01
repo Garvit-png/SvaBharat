@@ -36,7 +36,7 @@ export function Navbar() {
   return (
     <>
       <div
-        className="absolute -top-[2px] -left-[2px] right-0 z-50 w-full flex items-start justify-between pointer-events-none"
+        className="absolute -top-[2px] -left-[2px] -right-[2px] z-50 flex items-start justify-between pointer-events-none"
       >
         {/* Logo Cutout */}
         <div className="flex items-center pointer-events-auto">
