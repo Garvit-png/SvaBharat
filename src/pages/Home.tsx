@@ -4,12 +4,14 @@ import { Hero } from "../components/Hero";
 import { CutTitle } from "../components/CutTitle";
 import { Navbar } from "../components/Navbar";
 import { getTestimonials, type Testimonial } from "../utils/storage";
-import { Quote } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 
 export function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
     setTestimonials(getTestimonials());
@@ -187,47 +189,98 @@ export function Home() {
 
       {/* ── TESTIMONIALS (VOICES OF THE MOVEMENT) ── */}
       {testimonials.length > 0 && (
-        <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
-          <CutTitle position="top-left">Voices of the Movement</CutTitle>
-
-          {/* Content shifted further to the right */}
-          <div className="mt-16 md:mt-20 max-w-[95%] lg:max-w-[65rem] xl:max-w-[70rem] ml-auto mr-0 pr-6 md:pr-12 lg:pr-16 relative z-20 transform translate-x-2 md:translate-x-8 lg:translate-x-16">
-            <p className="text-lg md:text-xl text-neutral-600 font-bold mb-12 text-center lg:text-left font-serif">
-              What researchers, practitioners, and builders say about the SvaBharat movement.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((test) => (
-                <div 
-                  key={test.id} 
-                  className="bg-white rounded-2xl p-8 border-2 border-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-10 h-10 bg-secondary-light text-secondary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Quote className="w-5 h-5 fill-current" />
-                    </div>
-                    <p className="text-charcoal/90 text-sm font-semibold leading-relaxed mb-8 italic font-serif">
-                      "{test.quote}"
-                    </p>
-                  </div>
-                  <div className="border-t border-white/40 pt-6">
-                    <h4 className="font-bold text-neutral-900 font-serif">{test.name}</h4>
-                    <p className="text-xs font-bold text-primary mt-1">{test.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Absolute Decorative Image on Left */}
-          <div className="absolute top-0 bottom-0 left-0 w-full lg:w-[55%] xl:w-[60%] h-full pointer-events-none select-none flex items-end justify-start">
+        <section className="relative w-full py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white flex flex-col">
+          
+          {/* Absolute Decorative Image on Left - Wider */}
+          <div className="absolute top-0 bottom-0 left-0 w-full lg:w-[70%] xl:w-[75%] h-full pointer-events-none select-none flex items-end justify-start">
             <img 
-              src="/img3.png?v=4" 
+              src="/img6.png?v=4" 
               alt="Voices Left Illustration" 
-              className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-left-bottom transform translate-y-6 md:translate-y-10 lg:translate-y-12 -translate-x-20 lg:-translate-x-40 xl:-translate-x-56"
+              className="w-full h-full mix-blend-multiply opacity-90 object-contain object-bottom lg:object-left-bottom transform translate-y-10 md:translate-y-14 lg:translate-y-20 -translate-x-10 lg:-translate-x-16 xl:-translate-x-24"
             />
           </div>
 
+          <CutTitle position="top-left">Voices of the Movement</CutTitle>
+
+          <div className="relative z-20 w-full flex flex-col items-end mt-12 md:mt-20">
+             {/* Container aligned to right side */}
+             <div className="w-full md:w-[28rem] lg:w-[30rem] shrink-0">
+               
+               <p className="text-lg md:text-xl text-neutral-700 font-bold mb-8 font-serif text-center lg:text-left">
+                 What researchers, practitioners, and builders say about the SvaBharat movement.
+               </p>
+
+               {/* Single Card Carousel */}
+               <div className="relative w-full h-[380px] sm:h-[350px] md:h-[340px] lg:h-[320px]">
+                 <AnimatePresence>
+                   <motion.div 
+                     key={activeTestimonial}
+                     initial={{ opacity: 0, x: 50, rotateY: -10 }}
+                     animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                     exit={{ opacity: 0, x: -50, rotateY: 10 }}
+                     transition={{ duration: 0.4, ease: "easeOut" }}
+                     className="bg-white rounded-3xl p-6 md:p-8 border-2 border-white shadow-xl flex flex-col justify-between w-full h-full absolute inset-0"
+                   >
+                     
+                     <div className="flex flex-col">
+                       {/* Orange Opening Quote Icon (Rotated) */}
+                       <div className="w-10 h-10 bg-secondary-light text-secondary rounded-xl flex items-center justify-center mb-4 shrink-0 transform rotate-180">
+                         <Quote className="w-5 h-5 fill-current" />
+                       </div>
+                       
+                       <p className="text-charcoal/90 text-sm md:text-base font-semibold leading-relaxed mb-4 italic font-serif">
+                         {testimonials[activeTestimonial]?.quote}
+                       </p>
+
+                       {/* Orange Closing Quote Icon (Normal) */}
+                       <div className="w-10 h-10 bg-secondary-light text-secondary rounded-xl flex items-center justify-center shrink-0 self-end">
+                         <Quote className="w-5 h-5 fill-current" />
+                       </div>
+                     </div>
+
+                     <div className="border-t border-neutral-100 pt-4 mt-4 relative z-10 flex items-center gap-4">
+                       <div className="w-10 h-10 rounded-full bg-secondary-light/30 flex items-center justify-center text-secondary font-serif font-bold text-lg shrink-0">
+                         {testimonials[activeTestimonial]?.name.charAt(0)}
+                       </div>
+                       <div>
+                         <h4 className="font-bold text-neutral-900 font-serif text-base leading-tight">{testimonials[activeTestimonial]?.name}</h4>
+                         <p className="text-xs font-bold text-primary">{testimonials[activeTestimonial]?.role}</p>
+                       </div>
+                     </div>
+                   </motion.div>
+                 </AnimatePresence>
+               </div>
+
+               {/* Navigation Controls */}
+               <div className="flex items-center justify-center gap-6 mt-10">
+                  <button 
+                    onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                    className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-neutral-500 hover:text-primary hover:scale-110 transition-all border border-neutral-100 cursor-pointer"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    {testimonials.map((_, i) => (
+                      <button 
+                        key={i}
+                        onClick={() => setActiveTestimonial(i)}
+                        className={`transition-all duration-300 rounded-full cursor-pointer ${
+                          i === activeTestimonial ? "w-6 h-2 bg-primary" : "w-2 h-2 bg-neutral-300 hover:bg-neutral-400"
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  <button 
+                    onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
+                    className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-neutral-500 hover:text-primary hover:scale-110 transition-all border border-neutral-100 cursor-pointer"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+               </div>
+             </div>
+          </div>
         </section>
       )}
 
