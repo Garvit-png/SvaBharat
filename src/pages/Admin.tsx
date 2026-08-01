@@ -94,12 +94,6 @@ export function Admin() {
   ];
 
   useEffect(() => {
-    // Check if session authentication exists
-    const sessionAuth = sessionStorage.getItem("svabharat_admin_auth");
-    if (sessionAuth === "true") {
-      setIsAuthenticated(true);
-    }
-
     // Load initial data
     setBlogs(getBlogs());
     setTestimonials(getTestimonials());
@@ -114,7 +108,6 @@ export function Admin() {
     e.preventDefault();
     const correctPasscode = import.meta.env.VITE_ADMIN_PASSCODE || "1234";
     if (passcode === correctPasscode) {
-      sessionStorage.setItem("svabharat_admin_auth", "true");
       setIsAuthenticated(true);
       setAuthError("");
     } else {
@@ -123,7 +116,6 @@ export function Admin() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem("svabharat_admin_auth");
     setIsAuthenticated(false);
     setPasscode("");
   };
