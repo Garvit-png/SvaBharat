@@ -26,6 +26,10 @@ export function Contact() {
               </p>
             </div>
             
+            <div className="lg:w-[80%] mt-8 animate-fade-in opacity-90 hover:opacity-100 transition-opacity duration-300">
+              <img src="/idea.png" alt="SvaBharat Idea" className="w-full h-auto rounded-[2rem] border-4 border-white shadow-xl object-cover" />
+            </div>
+            
             {/* Direct Contact Info (Temporarily Hidden) */}
             {false && (
               <div className="space-y-6">
