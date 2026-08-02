@@ -26,20 +26,23 @@ export function Contact() {
               </p>
             </div>
             
-            <div className="space-y-6">
-              <div className="bg-white/60 p-6 rounded-2xl border-2 border-white shadow-sm">
-                <h4 className="text-xs font-bold text-neutral-455 uppercase tracking-widest mb-2">Email</h4>
-                <a href="mailto:hello@svabharat.in" className="text-xl font-bold text-charcoal hover:text-primary transition-colors">
-                  hello@svabharat.in
-                </a>
+            {/* Direct Contact Info (Temporarily Hidden) */}
+            {false && (
+              <div className="space-y-6">
+                <div className="bg-white/60 p-6 rounded-2xl border-2 border-white shadow-sm">
+                  <h4 className="text-xs font-bold text-neutral-455 uppercase tracking-widest mb-2">Email</h4>
+                  <a href="mailto:hello@svabharat.in" className="text-xl font-bold text-charcoal hover:text-primary transition-colors">
+                    hello@svabharat.in
+                  </a>
+                </div>
+                <div className="bg-white/60 p-6 rounded-2xl border-2 border-white shadow-sm">
+                  <h4 className="text-xs font-bold text-neutral-455 uppercase tracking-widest mb-2">Contact Number</h4>
+                  <a href="tel:+919876543210" className="text-xl font-bold text-charcoal hover:text-primary transition-colors">
+                    +91 98765 43210
+                  </a>
+                </div>
               </div>
-              <div className="bg-white/60 p-6 rounded-2xl border-2 border-white shadow-sm">
-                <h4 className="text-xs font-bold text-neutral-455 uppercase tracking-widest mb-2">Contact Number</h4>
-                <a href="tel:+919876543210" className="text-xl font-bold text-charcoal hover:text-primary transition-colors">
-                  +91 98765 43210
-                </a>
-              </div>
-            </div>
+            )}
           </div>
           
           <div className="lg:w-1/2 bg-white rounded-2xl p-8 md:p-10 shadow-md border-2 border-white animate-fade-in">
