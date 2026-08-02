@@ -16,13 +16,20 @@ const filteredIdeas = ideas.filter((idea) =>
 );
   return (
     <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-10">
-      {/* Page Header */}
       <section className="relative w-full pt-32 pb-16 px-6 md:px-12 lg:px-24 bg-cream rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
         <Navbar />
-        <h1 className="text-5xl md:text-7xl font-serif font-extrabold tracking-tight mb-6 text-charcoal">Ideas in Motion</h1>
-        <p className="text-xl md:text-2xl text-neutral-600 max-w-3xl font-serif font-bold">
-          Explorations, propositions, and fundamental questions we are currently working on.
-        </p>
+        
+        {/* Background Idea Image aligned to the right boundary */}
+        <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden md:flex items-center justify-end pointer-events-none opacity-90 mix-blend-multiply">
+          <img src="/idea.png" alt="Idea graphic" className="w-full h-full object-contain object-right" />
+        </div>
+
+        <div className="relative z-10 w-full md:w-[65%] mt-8 lg:mt-16">
+          <h1 className="text-5xl md:text-7xl font-serif font-extrabold tracking-tight mb-6 text-charcoal">Ideas in Motion</h1>
+          <p className="text-xl md:text-2xl text-neutral-600 max-w-3xl font-serif font-bold">
+            Explorations, propositions, and fundamental questions we are currently working on.
+          </p>
+        </div>
       </section>
 
       {/* All Ideas Section */}
