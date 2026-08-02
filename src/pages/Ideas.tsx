@@ -20,7 +20,7 @@ const filteredIdeas = ideas.filter((idea) =>
         <Navbar />
         
         {/* Background Idea Image aligned to the right boundary */}
-        <div className="absolute right-0 top-0 bottom-0 w-[22%] hidden md:flex items-end pointer-events-none opacity-90 mix-blend-multiply pb-12">
+        <div className="absolute right-0 bottom-2 w-[22%] hidden md:block pointer-events-none opacity-90 mix-blend-multiply">
           <img src="/idea.png" alt="Idea graphic" className="w-full h-auto" />
         </div>
 
