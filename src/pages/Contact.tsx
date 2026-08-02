@@ -19,7 +19,7 @@ export function Contact() {
         
         <div className="mt-16 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/2 flex flex-col justify-center space-y-10">
-            <div>
+            <div className="lg:w-[65%]">
               <h3 className="text-2xl font-serif font-bold mb-4 text-charcoal">We would like to hear from you.</h3>
               <p className="text-lg text-neutral-600 font-semibold leading-relaxed">
                 Have a question you believe Bharat should be asking, or an idea you want to explore or a perspective that could strengthen one of our ideas?
