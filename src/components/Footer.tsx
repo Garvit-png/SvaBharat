@@ -80,7 +80,7 @@ export function Footer() {
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto mt-16 pt-8 border-t border-white/40 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-500 font-semibold">
-        <p className="text-white">© {new Date().getFullYear()} SvaBharat. All rights reserved.</p>
+        <p className="text-black font-bold">© {new Date().getFullYear()} SvaBharat. All rights reserved.</p>
         <Link 
           to="/admin" 
           className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-neutral-50 border-2 border-white text-xs font-bold text-neutral-500 hover:text-primary transition-all shadow-sm cursor-pointer"
