@@ -25,9 +25,9 @@ export function Contact() {
                 Have a question you believe Bharat should be asking, or an idea you want to explore or a perspective that could strengthen one of our ideas?
               </p>
             </div>
-            
-
-            
+                        <div className="flex-1 w-full flex items-end justify-start mt-8 opacity-90 mix-blend-multiply pb-10">
+              <img src="/7.png" alt="Get in touch illustration" className="w-[85%] max-w-md object-contain" />
+            </div>
             {/* Direct Contact Info (Temporarily Hidden) */}
             {false && (
               <div className="space-y-6">
