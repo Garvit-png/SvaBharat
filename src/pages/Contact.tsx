@@ -47,19 +47,19 @@ export function Contact() {
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label className="block text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">Name</label>
-                <input type="text" className="w-full px-4 py-3 rounded-xl border-2 border-white bg-cream/20 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
+                <input type="text" className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 bg-neutral-50 hover:border-neutral-300 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">Email Address</label>
-                <input type="email" className="w-full px-4 py-3 rounded-xl border-2 border-white bg-cream/20 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
+                <input type="email" className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 bg-neutral-50 hover:border-neutral-300 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">Organisation / Affiliation (Optional)</label>
-                <input type="text" className="w-full px-4 py-3 rounded-xl border-2 border-white bg-cream/20 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
+                <input type="text" className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 bg-neutral-50 hover:border-neutral-300 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">I am reaching out about:</label>
-                <select className="w-full px-4 py-3 rounded-xl border-2 border-white bg-cream/20 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary">
+                <select className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 bg-neutral-50 hover:border-neutral-300 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary">
                   <option>Contributing an Idea</option>
                   <option>Joining an Existing Idea</option>
                   <option>Becoming a Contributor</option>
@@ -72,7 +72,7 @@ export function Contact() {
               </div>
               <div>
                 <label className="block text-xs font-bold text-neutral-500 uppercase tracking-widest mb-2">Message</label>
-                <textarea rows={4} className="w-full px-4 py-3 rounded-xl border-2 border-white bg-cream/20 text-sm font-semibold resize-none transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                <textarea rows={4} className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 bg-neutral-50 hover:border-neutral-300 text-sm font-semibold resize-none transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
               </div>
               <button className="w-full px-8 py-4 rounded-xl bg-primary text-white font-bold hover:bg-secondary transition-colors shadow-sm cursor-pointer active:scale-95 text-sm uppercase tracking-wider">
                 Start a Conversation
