@@ -18,7 +18,7 @@ export function Contact() {
         <CutTitle position="top-left">Get in Touch</CutTitle>
         
         <div className="mt-16 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
-          <div className="lg:w-1/2 flex flex-col justify-center space-y-10 lg:-mt-24">
+          <div className="lg:w-1/2 flex flex-col justify-start space-y-10 lg:pt-32">
             <div className="lg:w-[65%]">
               <h3 className="text-2xl font-serif font-bold mb-4 text-charcoal">We would like to hear from you.</h3>
               <p className="text-lg text-neutral-600 font-semibold leading-relaxed">
