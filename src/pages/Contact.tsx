@@ -15,9 +15,15 @@ export function Contact() {
 
       {/* Get in Touch Section */}
       <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-cream-dark rounded-3xl md:rounded-[3rem] overflow-hidden border-2 border-white">
+        
+        {/* Absolute Background Image aligned to bottom left */}
+        <div className="absolute left-0 bottom-0 w-[55%] lg:w-[45%] pointer-events-none opacity-90 mix-blend-multiply z-0">
+          <img src="/img7.png" alt="Get in touch illustration" className="w-full h-auto object-contain object-left-bottom" />
+        </div>
+
         <CutTitle position="top-left">Get in Touch</CutTitle>
         
-        <div className="mt-16 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
+        <div className="mt-16 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 relative z-10">
           <div className="lg:w-1/2 flex flex-col justify-start space-y-10 lg:pt-32">
             <div className="lg:w-[65%]">
               <h3 className="text-2xl font-serif font-bold mb-4 text-charcoal">We would like to hear from you.</h3>
@@ -25,9 +31,7 @@ export function Contact() {
                 Have a question you believe Bharat should be asking, or an idea you want to explore or a perspective that could strengthen one of our ideas?
               </p>
             </div>
-                        <div className="flex-1 w-full flex items-end justify-start mt-8 opacity-90 mix-blend-multiply pb-10">
-              <img src="/img7.png" alt="Get in touch illustration" className="w-full max-w-xl object-contain" />
-            </div>
+                        {/* Image is now absolutely positioned at the section level */}
             {/* Direct Contact Info (Temporarily Hidden) */}
             {false && (
               <div className="space-y-6">
